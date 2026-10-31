@@ -1,0 +1,1330 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "route": "/",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [[".text-right"]]
+        },
+        {
+          "id": "label",
+          "targets": [[".accent-mint-500"]]
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/client",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:border-moss-300.hover\\:shadow-e1[href=\"/client/orders/N-1042\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1041\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1038\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/client/new",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".p-1\\.5.hover\\:bg-moss-100.gap-2"], [".h-11"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/gigs/g1",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "select-name",
+          "targets": [["select"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 411,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(3)"],
+            [
+              "li:nth-child(1) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(2) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(3) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 381,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:shadow-e1.block[href=\"/provider/orders/N-1042\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/provider/orders/N-1041\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [".gap-1\\.5.select-none.inline-flex > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider/wallet",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".p-1\\.5.gap-2.hover\\:bg-moss-100"]]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:bg-mist\\/50:nth-child(1) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(2) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(3) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/orders/N-1042/dispute",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 421,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".uppercase.tracking-wider.block"],
+            [".mt-1\\.5 > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/admin",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".bg-deep-50\\/70 > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(2) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(3) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/learning",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/privacy",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/terms",
+      "locale": "en",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [[".text-right"]]
+        },
+        {
+          "id": "label",
+          "targets": [[".accent-mint-500"]]
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/client",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:border-moss-300.hover\\:shadow-e1[href=\"/client/orders/N-1042\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1041\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1038\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/client/new",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".h-11"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/gigs/g1",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "select-name",
+          "targets": [["select"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".text-center:nth-child(5) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [
+              ".text-center:nth-child(6) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(1)"],
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(2)"],
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(3)"],
+            [
+              "li:nth-child(1) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(2) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(3) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:shadow-e1.block[href=\"/provider/orders/N-1042\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/provider/orders/N-1041\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [".gap-1\\.5.select-none.inline-flex > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider/wallet",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:bg-mist\\/50:nth-child(1) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(2) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(3) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/orders/N-1042/dispute",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".uppercase.tracking-wider.block"],
+            [".mt-1\\.5 > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/admin",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".bg-deep-50\\/70 > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(2) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(3) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/learning",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/privacy",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/terms",
+      "locale": "en",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [[".text-right"]]
+        },
+        {
+          "id": "label",
+          "targets": [[".accent-mint-500"]]
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/client",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:border-moss-300.hover\\:shadow-e1[href=\"/client/orders/N-1042\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1041\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1038\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/client/new",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".h-11"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/gigs/g1",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "select-name",
+          "targets": [["select"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".text-center:nth-child(5) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [
+              ".text-center:nth-child(6) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(3)"],
+            [
+              "li:nth-child(1) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(2) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(3) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:shadow-e1.block[href=\"/provider/orders/N-1042\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/provider/orders/N-1041\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [".gap-1\\.5.select-none.inline-flex > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider/wallet",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:bg-mist\\/50:nth-child(1) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(2) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(3) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/orders/N-1042/dispute",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".uppercase.tracking-wider.block"],
+            [".mt-1\\.5 > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/admin",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".bg-deep-50\\/70 > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(2) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(3) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/learning",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/privacy",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/terms",
+      "locale": "en",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "en",
+      "issues": []
+    },
+    {
+      "route": "/",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [[".text-right"]]
+        },
+        {
+          "id": "label",
+          "targets": [[".accent-mint-500"]]
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/client",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:border-moss-300.hover\\:shadow-e1[href=\"/client/orders/N-1042\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1041\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1038\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/client/new",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".p-1\\.5.hover\\:bg-moss-100.gap-2"], [".h-11"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/gigs/g1",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "select-name",
+          "targets": [["select"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 411,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(3)"],
+            [
+              "li:nth-child(1) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(2) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(3) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 381,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:shadow-e1.block[href=\"/provider/orders/N-1042\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/provider/orders/N-1041\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [".gap-1\\.5.select-none.inline-flex > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider/wallet",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".p-1\\.5.gap-2.hover\\:bg-moss-100"]]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:bg-mist\\/50:nth-child(1) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(2) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(3) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/orders/N-1042/dispute",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 373,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".uppercase.tracking-wider.block"],
+            [".mt-1\\.5 > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/admin",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [
+            [".relative > .p-1\\.5.hover\\:bg-moss-100[type=\"button\"]"]
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".bg-deep-50\\/70 > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(2) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(3) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/learning",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/privacy",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/terms",
+      "locale": "bn",
+      "width": 360,
+      "pageWidth": 360,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [[".text-right"]]
+        },
+        {
+          "id": "label",
+          "targets": [[".accent-mint-500"]]
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/client",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:border-moss-300.hover\\:shadow-e1[href=\"/client/orders/N-1042\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1041\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1038\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/client/new",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".h-11"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/gigs/g1",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "select-name",
+          "targets": [["select"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".text-center:nth-child(5) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [
+              ".text-center:nth-child(6) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(2)"],
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(3)"],
+            [
+              "li:nth-child(1) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(2) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(3) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:shadow-e1.block[href=\"/provider/orders/N-1042\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/provider/orders/N-1041\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [".gap-1\\.5.select-none.inline-flex > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider/wallet",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:bg-mist\\/50:nth-child(1) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(2) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(3) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/orders/N-1042/dispute",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".uppercase.tracking-wider.block"],
+            [".mt-1\\.5 > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/admin",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".bg-deep-50\\/70 > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(2) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(3) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/learning",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/privacy",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/terms",
+      "locale": "bn",
+      "width": 768,
+      "pageWidth": 768,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [[".text-right"]]
+        },
+        {
+          "id": "label",
+          "targets": [[".accent-mint-500"]]
+        }
+      ]
+    },
+    {
+      "route": "/auth",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/client",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:border-moss-300.hover\\:shadow-e1[href=\"/client/orders/N-1042\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1041\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/client/orders/N-1038\"] > .mb-2.sm\\:items-center.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/client/new",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "button-name",
+          "targets": [[".h-11"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/gigs/g1",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "select-name",
+          "targets": [["select"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".text-center:nth-child(5) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [
+              ".text-center:nth-child(6) > .max-w-\\[80px\\].sm\\:max-w-none.mt-2"
+            ],
+            [".sm\\:text-h2.font-black.tracking-widest:nth-child(3)"],
+            [
+              "li:nth-child(1) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(2) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ],
+            [
+              "li:nth-child(3) > .text-moss-400.font-variant-numeric.tabular-nums"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:shadow-e1.block[href=\"/provider/orders/N-1042\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [
+              "a[href=\"/provider/orders/N-1041\"] > .sm\\:items-center.mb-2.sm\\:flex-row > div:nth-child(1) > .font-mono.mr-2.text-moss-400"
+            ],
+            [".gap-1\\.5.select-none.inline-flex > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/provider/wallet",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".hover\\:bg-mist\\/50:nth-child(1) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(2) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/50:nth-child(3) > .pr-4 > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/orders/N-1042/dispute",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [".uppercase.tracking-wider.block"],
+            [".mt-1\\.5 > .text-moss-400"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/admin",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".bg-deep-50\\/70 > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(2) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ],
+            [
+              ".hover\\:bg-mist\\/30.cursor-pointer.gap-4:nth-child(3) > .min-w-0.flex-1 > .mb-1.gap-2.flex > .font-mono.text-moss-400.text-caption"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/learning",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/privacy",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": []
+    },
+    {
+      "route": "/terms",
+      "locale": "bn",
+      "width": 1280,
+      "pageWidth": 1280,
+      "lang": "bn",
+      "issues": []
+    }
+  ]
+}

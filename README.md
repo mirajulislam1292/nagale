@@ -38,3 +38,5 @@ Vercel project `nagale`, separate from `nagale-coming-soon-bd`. The prototype li
 41 unit tests cover contact masking, fee calculations, order transitions and idempotency. The Playwright script checks routes and viewports, runs axe, and completes the proposal-to-payment-release flow. See `docs/QA_REPORT.md` for actual results and limitations. This is not a v0.1.0 claim of full master-spec compliance.
 
 Premium redesign Tier 1: see docs/REDESIGN_REPORT.md for before/after pattern counts, screenshots and measured production Lighthouse results. Visual changes are deployed; the performance gate and later tiers remain incomplete. Lighthouse 12.2.1 was run as a standalone npm exec QA tool, without adding a runtime dependency.
+
+Latest standalone build-brief verification: see docs/BUILD_BRIEF_STATUS.md. The remaining verification gate is open; branch previews are not a claim of completed production readiness.
