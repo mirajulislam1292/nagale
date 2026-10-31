@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Locale font loading and the complete token table follow the brand step. */
+@layer base {
+  body {
+    @apply m-0 bg-mist text-moss font-sans text-base;
+  }
+}
