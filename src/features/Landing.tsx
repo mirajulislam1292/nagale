@@ -79,6 +79,7 @@ export function Component() {
                   <Paperclip size={20} />
                   <span>{file || c('Attach a brief', 'বিবরণ যুক্ত করুন')}</span>
                   <input
+                    aria-label={c('Attach a brief', 'বিবরণ যুক্ত করুন')}
                     type="file"
                     accept=".pdf,.txt,.png,.jpg"
                     onChange={(e) => setFile(e.target.files?.[0]?.name || '')}

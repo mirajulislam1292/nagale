@@ -1,6 +1,7 @@
 import {
   createContext,
   useContext,
+  useEffect,
   useState,
   useSyncExternalStore,
   type ReactNode,
@@ -21,6 +22,9 @@ const AppContext = createContext<Context | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [role, setRole] = useState<Role>('client');
   const [bn, setBn] = useState(localStorage.getItem('nagale.locale') === 'bn');
+  useEffect(() => {
+    document.documentElement.lang = bn ? 'bn' : 'en';
+  }, [bn]);
   const [lite, setLite] = useState(false);
   const [notice, notify] = useState('');
   const locale = (v: boolean) => {
