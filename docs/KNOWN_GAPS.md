@@ -11,4 +11,4 @@ The current build is a functional visual prototype, not a completed implementati
 - /styleguide, generated handoff checks, exact design-token audit, full logo/favicon set review, OG image, service worker and analytics interface remain.
 - Dependency advisories remain from the pinned dependency versions; audit and remediation are required before real-user launch.
 - Lighthouse scores and full screen-reader verification have not been measured. Browser findings and follow-up fixes are recorded in QA_REPORT, without claiming unrun checks.
-- The complete frontend is prepared locally for publishing; GitHub source synchronisation status is recorded in the delivery note.
+- The functional prototype source and brand assets are published to the private GitHub repository. The remaining items above are not represented as complete.

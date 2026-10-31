@@ -1,0 +1,17 @@
+[
+  {
+    "route": "/",
+    "viewport": 320,
+    "pageWidth": 320
+  },
+  {
+    "route": "/client",
+    "viewport": 320,
+    "pageWidth": 320
+  },
+  {
+    "route": "/provider",
+    "viewport": 320,
+    "pageWidth": 320
+  }
+]

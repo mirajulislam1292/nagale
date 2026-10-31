@@ -21,3 +21,5 @@ No Lighthouse score, INP/LCP guarantee, full screen-reader pass, full Bangla rou
 ## Follow-up
 
 All seven targeted live checks returned HTTP 200 and the expected h1. The targeted axe recheck found zero serious/critical violations on those seven checks. Landing had no 320px overflow. The two dashboard checks still exposed a screen-reader-only table label contributing to page scroll width; the label has been positioned at the page origin and a final targeted check follows. The no-sign-in client demo entry passed. Unused-code/dependency checking now passes after pruning unused libraries and marking lazy route modules as entry points.
+
+Final targeted local recheck: landing, client dashboard and provider dashboard each have pageWidth 320 at viewport 320. Results saved to qa/mobile-final.json. The label-position correction resolves the page overflow; the wide order table remains intentionally horizontally scrollable inside its own container.
