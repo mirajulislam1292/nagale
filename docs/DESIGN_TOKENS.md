@@ -1,15 +1,73 @@
-# Design tokens
+# Nagale Design Tokens
 
-The original PDF is the source of the logo artwork. Vector crops were extracted with PyMuPDF and optimised with SVGO. The mark is used unchanged beside the English name in the primary navigation. Original bilingual full-lockup variants are retained in the shared Logo component.
+Canonical design tokens defined in `src/lib/tokens.ts` and exported to `tailwind.config.js`.
 
-Palette: Mint #3FD3A2, Moss #0C2A24, Deep Mint #0F7A5C, Mist #F3F7F5, White #FFFFFF. Supporting lines and text are muted green-grey; amber is reserved for review status. Body copy uses Moss or #576C65 on light surfaces, never mint on white.
+## 1. Color Palette
 
-Inter 400/500/700 and Noto Sans Bengali 400/500/700 are self-hosted in public/fonts. Main layouts use a 1200px content area, a 240px workspace sidebar, and responsive single-column fallbacks. Components use 6/12/20px principal radii; avatars are circular. The implementation currently has a few 8px helper radii and extra type sizes; exact master-token consolidation remains a documented gap.
+| Token         | Hex       | Role                                          | Contrast Ratio on White / Mist          |
+| ------------- | --------- | --------------------------------------------- | --------------------------------------- |
+| **Mint**      | `#3FD3A2` | Primary action button fill, highlight borders | 8.05:1 (with Moss text on top)          |
+| **Moss**      | `#0C2A24` | Primary brand surface, headlines, body text   | 15.30:1 on White / 14.16:1 on Mist      |
+| **Moss-600**  | `#38524B` | Secondary body text, captions                 | 6.65:1 on White                         |
+| **Moss-500**  | `#576C65` | Muted metadata, minimum accessible text       | 5.19:1 on White / 4.80:1 on Mist        |
+| **Deep Mint** | `#0F7A5C` | Interactive links, brand icons                | 5.30:1 on White                         |
+| **Deep-700**  | `#0A5C45` | Step-adjusted success text token              | 6.77:1 on Deep-100 (Success background) |
+| **Mist**      | `#F3F7F5` | Primary page background, subtle panels        | 14.16:1 against Moss                    |
+| **White**     | `#FFFFFF` | Input surfaces, cards, modals                 | 15.30:1 against Moss                    |
 
-Keyboard focus is visible, interactive buttons have 44px minimum height, the page has a skip link and one h1, and route navigation restores focus to the h1. Compact suggestions and some secondary text controls still need full target-size auditing. Lite mode removes the landing preview, portfolio artwork, shadows and animation. Reduced motion is supported.
+### Semantic Status Colors
 
-## Premium redesign — Tier 1
+| State       | Text Token | Background Token | Measured Contrast     |
+| ----------- | ---------- | ---------------- | --------------------- |
+| **Warning** | `#7A5200`  | `#FBF3E0`        | 6.26:1 (WCAG AA pass) |
+| **Danger**  | `#9A2F2F`  | `#FBECEA`        | 6.48:1 (WCAG AA pass) |
+| **Success** | `#0A5C45`  | `#DCF1EA`        | 6.77:1 (WCAG AA pass) |
+| **Info**    | `#38524B`  | `#E2EDE8`        | 5.59:1 (WCAG AA pass) |
 
-Display: English 72px / 44px mobile, 1.05 line-height, -0.03em tracking. Bengali 64px / 40px mobile, 1.3 line-height, zero tracking. Section 40, subsection 28, lead 20, body 16, small 14, caption 12. Tailwind exposes display. `/styleguide` demonstrates the scale, actions and states in either locale.
+> [!NOTE]
+> Contrast is verified by `scripts/check-contrast.mjs` running as part of `npm run test`. Mint text is strictly forbidden on White or Mist.
 
-Primary action: Mint fill with Moss text. Strong neutral action: Moss fill with white text. Secondary action: outline. App bar is 56px; desktop sidebar 240px; mobile workspace navigation is fixed to the bottom. Landing uses two Moss sections, editorial category rows and one full-width Mint provider band. Minimum public section rhythm is 128px desktop and 72px mobile.
+---
+
+## 2. Typography Scale
+
+Fonts:
+
+- Latin: **Inter** (400 Regular, 500 Medium, 700 Bold)
+- Bengali: **Noto Sans Bengali** (400 Regular, 500 Medium, 700 Bold)
+- Monospace / Tabular: `font-variant-numeric: tabular-nums`
+
+| Level     | Size (Desktop / Mobile) | Line Height | Tracking                     |
+| --------- | ----------------------- | ----------- | ---------------------------- |
+| `display` | 72px / 44px             | 1.05        | -0.03em (Latin) / 0 (Bangla) |
+| `h1`      | 48px / 36px             | 1.15        | -0.02em                      |
+| `h2`      | 36px / 28px             | 1.20        | -0.015em                     |
+| `h3`      | 28px / 22px             | 1.25        | -0.01em                      |
+| `h4`      | 22px / 18px             | 1.30        | -0.005em                     |
+| `body`    | 16px                    | 1.50        | 0                            |
+| `small`   | 14px                    | 1.45        | 0                            |
+| `caption` | 12px                    | 1.40        | +0.01em                      |
+
+---
+
+## 3. Border Radii & Elevation
+
+### Radii
+
+- `rounded-sm`: **6px** (buttons, input fields, badges, segmented control items)
+- `rounded-md`: **12px** (cards, panels, dropzones)
+- `rounded-xl`: **20px** (large modals, hero preview containers)
+- `rounded-full`: Avatars, circular indicators only
+
+### Elevations
+
+- `shadow-e1`: `0 1px 3px rgba(12, 42, 36, 0.08), 0 1px 2px rgba(12, 42, 36, 0.04)` (Cards, dropdowns)
+- `shadow-e2`: `0 8px 24px rgba(12, 42, 36, 0.12), 0 2px 6px rgba(12, 42, 36, 0.06)` (Modals, popovers)
+
+---
+
+## 4. Spacing & Rhythm
+
+- Minimum tap target: **44px**
+- Public section spacing: **128px** desktop, **72px** mobile
+- Layout container width: `1200px` (public/landing), `1120px` (app workspaces)
