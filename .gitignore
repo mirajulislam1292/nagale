@@ -11,3 +11,4 @@ test-results/
 .vercel
 
 qa/screenshots/
+qa/redesign/*.png

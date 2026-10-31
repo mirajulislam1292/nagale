@@ -5,7 +5,6 @@ import {
   Plus,
   Clock,
   ShieldCheck,
-  ArrowUpRight,
   Check,
   SlidersHorizontal,
   Search,
@@ -90,7 +89,7 @@ function OrderList() {
                   aria-label={`Open ${o.id}`}
                   to={`${base}/orders/${o.id}`}
                 >
-                  <ArrowUpRight size={18} />
+                  <ArrowRight size={18} />
                 </Link>
               </td>
             </tr>
@@ -179,7 +178,9 @@ export function Dashboard() {
                 <I size={19} strokeWidth={1.5} />
               </div>
               <strong>{String(value)}</strong>
-              <small>{c('Demo workspace', 'ডেমো ওয়ার্কস্পেস')}</small>
+              <small>
+                {c('Across your current jobs', 'আপনার বর্তমান কাজগুলো')}
+              </small>
             </div>
           );
         })}
@@ -274,7 +275,7 @@ export function Dashboard() {
               <div className="job-right">
                 <strong>{money(g.budget)}</strong>
                 <span>
-                  View job <ArrowUpRight size={14} />
+                  View job <ArrowRight size={14} />
                 </span>
               </div>
             </Link>
@@ -481,7 +482,7 @@ export function Brief() {
                     nav(`/client/gigs/${g.id}`);
                   }}
                 >
-                  Post job <ArrowUpRight size={17} />
+                  Post job <ArrowRight size={17} />
                 </AsyncButton>
               </div>
             </form>
@@ -785,7 +786,6 @@ export function OrderDetail() {
       <div className="detail-layout">
         <div>
           <section className="panel order-action">
-            <p className="eyebrow">Next step</p>
             <h2>
               {o.status === 'accepted'
                 ? o.providerAccepted
@@ -1003,7 +1003,6 @@ export function Messages() {
       </PageHeading>
       <div className="messaging">
         <aside className="thread-list">
-          <p className="eyebrow">Order conversation</p>
           <div className="thread selected">
             <span className="avatar">NJ</span>
             <span>
@@ -1026,7 +1025,7 @@ export function Messages() {
               <p className="small muted">Graduate CV and cover letter</p>
             </div>
             <Link to="/client/orders/N-1042" className="text-link">
-              View order <ArrowUpRight size={16} />
+              View order <ArrowRight size={16} />
             </Link>
           </div>
           <div className="message-list" aria-live="polite">
@@ -1087,7 +1086,7 @@ export function Profile() {
           <p className="muted">{p.area}</p>
         </div>
         <Link to="/client/new" className="button">
-          Invite to a job <ArrowUpRight size={18} />
+          Invite to a job <ArrowRight size={18} />
         </Link>
       </div>
       <div className="profile-layout">
@@ -1108,13 +1107,12 @@ export function Profile() {
                 'Document structure',
                 'Presentation layout',
                 'Project outline',
-              ].map((s, i) => (
+              ].map((s) => (
                 <div className="portfolio-item" key={s}>
                   <div className="portfolio-art">
                     <div className="fake-line short" />
                     <div className="fake-line" />
                     <div className="fake-line" />
-                    <span>0{i + 1}</span>
                   </div>
                   <h3>{s}</h3>
                   <p className="small muted">Illustrative sample · demo</p>
@@ -1287,7 +1285,6 @@ export function Verification() {
           ],
         ].map(([n, title, description, status]) => (
           <section className="panel" key={n}>
-            <span className="large-number">{n}</span>
             <h2>{title}</h2>
             <p>{description}</p>
             <Badge tone={status === 'Approved' ? 'green' : 'neutral'}>

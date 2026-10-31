@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
-  ArrowUpRight,
   BriefcaseBusiness,
   UserRound,
   ShieldCheck,
@@ -29,7 +28,6 @@ export function Auth() {
   return (
     <div className="auth-page">
       <div className="auth-intro">
-        <p className="eyebrow">Nagale / interactive demo</p>
         <h1 tabIndex={-1}>
           {c('Choose your', 'আপনার জায়গা')}
           <br />
@@ -86,7 +84,7 @@ export function Auth() {
                 <h2>{String(title)}</h2>
                 <p>{String(description)}</p>
               </div>
-              <ArrowUpRight size={22} />
+              <ArrowRight size={22} />
             </button>
           );
         })}
@@ -256,17 +254,16 @@ export function Info() {
               '16 min',
               'Package your files and explain the next steps.',
             ],
-          ].map(([title, audience, time, description], i) => (
+          ].map(([title, audience, time, description]) => (
             <article className="course" key={title}>
               <div className="course-art">
                 <BookOpen size={38} strokeWidth={1.5} />
-                <span>0{i + 1}</span>
               </div>
               <div className="course-body">
-                <p className="eyebrow">
+                <h2>{title}</h2>
+                <p>
                   {audience} · {time}
                 </p>
-                <h2>{title}</h2>
                 <p>{description}</p>
                 <button
                   className="button button--outline full"
@@ -288,7 +285,7 @@ export function Info() {
                     <PlusIcon />
                   )}
                 </button>
-                <small className="muted">Coming soon · no paid enrolment</small>
+                <small className="muted">Course preview</small>
               </div>
             </article>
           ))}
@@ -391,9 +388,8 @@ export function Info() {
               'Production policies, data retention, payment terms and support procedures require review before real users or payments are enabled.',
             ],
           ]
-      ).map(([title, body], i) => (
+      ).map(([title, body]) => (
         <section className="reading-section" key={title}>
-          <span className="eyebrow">0{i + 1}</span>
           <h2>{title}</h2>
           <p>{body}</p>
         </section>
@@ -403,7 +399,7 @@ export function Info() {
   );
 }
 function PlusIcon() {
-  return <ArrowUpRight size={16} />;
+  return <ArrowRight size={16} />;
 }
 export function Demo() {
   const { setRole, notify } = useApp();

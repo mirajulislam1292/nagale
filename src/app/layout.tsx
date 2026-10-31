@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -6,7 +6,7 @@ import {
   MessagesSquare,
   Wallet,
   ShieldCheck,
-  ArrowUpRight,
+  ArrowRight,
   Settings2,
   X,
   PanelLeft,
@@ -17,8 +17,9 @@ import { useApp, useCopy } from './context';
 import { Logo } from '../components/ui/Logo';
 export function Layout() {
   const { pathname } = useLocation();
+  const [enteredWorkspace, setEnteredWorkspace] = useState(false);
   const c = useCopy();
-  const { bn, setBn, lite, setLite, notice, notify, role } = useApp();
+  const { bn, setBn, lite, setLite, notice, notify, role, setRole } = useApp();
   const workspace = /^\/(client|provider|admin)(\/|$)/.test(pathname);
   const base = pathname.startsWith('/provider')
     ? '/provider'
@@ -32,48 +33,64 @@ export function Layout() {
       document.querySelector<HTMLElement>('h1')?.focus(),
     );
     notify('');
-  }, [pathname, notify]);
+    if (workspace) setEnteredWorkspace(true);
+    if (workspace)
+      setRole(
+        base === '/provider'
+          ? 'provider'
+          : base === '/admin'
+            ? 'admin'
+            : 'client',
+      );
+  }, [pathname, notify, workspace, base, setRole]);
   return (
     <>
       <a className="skip-link" href="#main">
         {c('Skip to content', 'মূল অংশে যান')}
       </a>
-      <header className="site-header">
-        <div className="header-inner">
-          <Link to="/" aria-label="Nagale home">
-            <Logo size="mark" accessibleName="" />
-            <span className="wordmark">{c('Nagale', 'নাগালে')}</span>
-          </Link>
-          <nav className="desktop-nav">
-            <NavLink to="/client/new">{c('Post a job', 'কাজ দিন')}</NavLink>
-            <NavLink to="/provider">{c('Find work', 'কাজ খুঁজুন')}</NavLink>
-            <NavLink to="/trust">{c('How it works', 'যেভাবে কাজ করে')}</NavLink>
-          </nav>
-          <div className="header-actions">
-            <button
-              className="locale"
-              onClick={() => setBn(!bn)}
-              aria-label={bn ? 'Switch to English' : 'Switch to Bangla'}
-            >
-              {bn ? 'EN' : 'বাংলা'}
-            </button>
-            <Link className="button button--small button--outline" to="/auth">
-              {c('Explore demo', 'ডেমো দেখুন')}
-              <ArrowUpRight size={16} />
+      {workspace ? (
+        <AppBar base={base} />
+      ) : (
+        <header className="site-header">
+          <div className="header-inner">
+            <Link to="/" aria-label="Nagale home">
+              <Logo size="mark" accessibleName="" />
+              <span className="wordmark">{c('Nagale', 'নাগালে')}</span>
             </Link>
+            <nav className="desktop-nav">
+              <NavLink to="/client/new">{c('Post a job', 'কাজ দিন')}</NavLink>
+              <NavLink to="/provider">{c('Find work', 'কাজ খুঁজুন')}</NavLink>
+              <NavLink to="/trust">
+                {c('How it works', 'যেভাবে কাজ করে')}
+              </NavLink>
+            </nav>
+            <div className="header-actions">
+              <button
+                className="locale"
+                onClick={() => setBn(!bn)}
+                aria-label={bn ? 'Switch to English' : 'Switch to Bangla'}
+              >
+                {bn ? 'EN' : 'বাংলা'}
+              </button>
+              <Link
+                className="header-login"
+                to={enteredWorkspace ? `/${role}` : '/auth'}
+              >
+                {enteredWorkspace
+                  ? c('Go to dashboard', 'ড্যাশবোর্ডে যান')
+                  : c('Log in', 'লগইন')}
+              </Link>
+              <Link className="button button--small button--outline" to="/auth">
+                {c('Sign up', 'অ্যাকাউন্ট খুলুন')}
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      )}
       <div className={workspace ? 'workspace' : 'public-layout'}>
         {workspace && (
           <aside className="sidebar">
-            <p className="eyebrow">
-              {base === '/client'
-                ? c('Client workspace', 'ক্লায়েন্টের কাজ')
-                : base === '/provider'
-                  ? c('Provider workspace', 'সেবাদাতার কাজ')
-                  : c('Admin workspace', 'অ্যাডমিনের কাজ')}
-            </p>
             <nav>
               <NavLink to={base} end>
                 <LayoutDashboard size={18} />
@@ -134,7 +151,7 @@ export function Layout() {
               </p>
               <Link to="/trust">
                 {c('Read the safeguards', 'সুরক্ষার নিয়ম পড়ুন')}
-                <ArrowUpRight size={14} />
+                <ArrowRight size={14} />
               </Link>
             </div>
             <Link className="account" to="/auth">
@@ -168,31 +185,76 @@ export function Layout() {
           </button>
         </div>
       )}
-      <footer className="footer">
-        <div className="footer-inner">
-          <Link className="footer-brand" to="/">
-            Nagale<span className="badge">Demo</span>
-          </Link>
-          <nav>
-            <Link to="/trust">{c('Trust & safety', 'আস্থা ও নিরাপত্তা')}</Link>
-            <Link to="/fees">{c('Fees', 'ফি')}</Link>
-            <Link to="/learning">{c('Learning', 'শেখা')}</Link>
-            <Link to="/support">{c('Support', 'সহায়তা')}</Link>
-            <Link to="/privacy">{c('Privacy', 'গোপনীয়তা')}</Link>
-          </nav>
-          <button className="text-link" onClick={() => setLite(!lite)}>
-            <PanelLeft size={15} />
-            {c('Lite mode', 'লাইট মোড')}:{' '}
-            {lite ? c('on', 'চালু') : c('off', 'বন্ধ')}
-          </button>
-        </div>
-        <p className="footer-note">
-          {c(
-            'Interactive prototype. Profiles, jobs and payments are demonstration data. No real payments are processed.',
-            'ইন্টারঅ্যাকটিভ প্রোটোটাইপ। প্রোফাইল, কাজ ও পেমেন্ট ডেমো তথ্য। এখানে প্রকৃত টাকা লেনদেন হয় না।',
-          )}
-        </p>
-      </footer>
+      {!workspace && (
+        <footer className="footer">
+          <div className="footer-inner">
+            <Link className="footer-brand" to="/auth">
+              Nagale<span className="badge">Explore demo</span>
+            </Link>
+            <nav>
+              <Link to="/trust">
+                {c('Trust & safety', 'আস্থা ও নিরাপত্তা')}
+              </Link>
+              <Link to="/fees">{c('Fees', 'ফি')}</Link>
+              <Link to="/learning">{c('Learning', 'শেখা')}</Link>
+              <Link to="/support">{c('Support', 'সহায়তা')}</Link>
+              <Link to="/privacy">{c('Privacy', 'গোপনীয়তা')}</Link>
+            </nav>
+            <button className="text-link" onClick={() => setLite(!lite)}>
+              <PanelLeft size={15} />
+              {c('Lite mode', 'লাইট মোড')}:{' '}
+              {lite ? c('on', 'চালু') : c('off', 'বন্ধ')}
+            </button>
+          </div>
+          <p className="footer-note">
+            {c(
+              'Interactive prototype. Profiles, jobs and payments are demonstration data. No real payments are processed.',
+              'ইন্টারঅ্যাকটিভ প্রোটোটাইপ। প্রোফাইল, কাজ ও পেমেন্ট ডেমো তথ্য। এখানে প্রকৃত টাকা লেনদেন হয় না।',
+            )}
+          </p>
+        </footer>
+      )}
     </>
+  );
+}
+
+function AppBar({ base }: { base: string }) {
+  const c = useCopy();
+  const { bn, setBn } = useApp();
+  const name =
+    base === '/provider'
+      ? 'Nusrat Jahan'
+      : base === '/admin'
+        ? 'Admin'
+        : 'Mahim';
+  return (
+    <header className="app-bar">
+      <Link to="/" aria-label="Nagale home">
+        <Logo size="mark" accessibleName="Nagale" />
+      </Link>
+      <span>
+        {base === '/provider'
+          ? c('Provider workspace', 'সেবাদাতার কাজ')
+          : base === '/admin'
+            ? c('Admin workspace', 'অ্যাডমিনের কাজ')
+            : c('Client workspace', 'ক্লায়েন্টের কাজ')}
+      </span>
+      <small>{c('Interactive demo', 'ইন্টারঅ্যাকটিভ ডেমো')}</small>
+      <button
+        className="locale"
+        onClick={() => setBn(!bn)}
+        aria-label={bn ? 'Switch to English' : 'Switch to Bangla'}
+      >
+        {bn ? 'EN' : 'বাংলা'}
+      </button>
+      <Link
+        className="app-account"
+        to="/auth"
+        aria-label={c('Switch workspace', 'ওয়ার্কস্পেস বদলান')}
+      >
+        <span className="avatar avatar--small">{name.slice(0, 1)}</span>
+        <span>{name}</span>
+      </Link>
+    </header>
   );
 }

@@ -25,6 +25,7 @@ export default {
       section: ['28px', '36px'],
       page: ['40px', '48px'],
       hero: ['56px', '60px'],
+      display: ['72px', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
     },
     borderRadius: { sm: '6px', md: '12px', lg: '20px', full: '9999px' },
     screens: { sm: '640px', md: '768px', lg: '1024px', xl: '1280px' },

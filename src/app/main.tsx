@@ -36,6 +36,7 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '/', lazy: () => import('../features/Landing') },
+      { path: '/styleguide', lazy: () => import('../features/Styleguide') },
       { path: '/auth', lazy: pub('Auth') },
       ...['trust', 'fees', 'support', 'learning', 'privacy', 'terms'].map(
         (path) => ({ path: '/' + path, lazy: pub('Info') }),

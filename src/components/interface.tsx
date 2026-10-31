@@ -17,7 +17,9 @@ export function PageHeading({
   return (
     <div className="page-heading">
       <div>
-        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+        {eyebrow?.startsWith('Order ') && (
+          <p className="context-label">{eyebrow}</p>
+        )}
         <h1 tabIndex={-1}>{title}</h1>
         {children && <p className="muted">{children}</p>}
       </div>
@@ -84,7 +86,7 @@ export function ProviderCard({
         <span>
           <strong>{p.rating.toFixed(1)}</strong> / 5{' '}
           <span className="muted">
-            · {p.completed} {c('demo jobs', 'ডেমো কাজ')}
+            · {p.completed} {c('jobs', 'কাজ')}
           </span>
         </span>
         <span>

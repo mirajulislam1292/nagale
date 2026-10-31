@@ -1,0 +1,18 @@
+# Premium redesign
+
+## Tier 1
+
+New Moss hero, display type, working prompt input, composed brief/proposal stack, editorial category rows, four-step sequence with interface fragments, trust rows, server-configured fee example, Mint provider band and Moss footer. Primary/secondary action styles normalised. Marketing header and footer are excluded from workspace routes; compact app bar and mobile bottom navigation added. Provider identity is synchronised with the active workspace. Original API and financial state rules remain intact.
+
+Pattern counts use scripts/pattern-sweep.mjs, scoped to the shared shell/components and three feature modules. Before/after: marketing shell in app 1/0; eyebrow classes 12/0; decorative number markers 9/0; ArrowUpRight references 15/0; targeted repeated demo phrases 5/0. Raw JSON is under qa/redesign. These counts describe the defined source patterns, not all possible occurrences of the English word Demo.
+
+Screenshot index: qa/redesign/before-landing-1280.png and {landing,client,provider,auth,styleguide}-{en,bn}-{360,768,1280}.png. QA JSON records real findings.
+
+## Remaining tiers
+
+Tier 2: conversational intake, live brief, proposals/compare layout, complete order visual treatment, provider feed reasons/reputation, wallet/payout treatment, counterpart/plural fixes.
+Tier 3: auth/selfie, attachment/masking UI, verification proof panels, dedicated disputes and admin views, profile tabs/reviews, compact learning catalog, reading pages and broader styleguide. Backend service gaps from KNOWN_GAPS still apply. No claim that those tiers have been completed.
+
+## Verification
+
+41 existing tests passed. Lint and strict type-check/build are run before publishing. Responsive/axe results are saved under qa/redesign/results.json. Lighthouse production results are recorded separately when available. No inferred performance scores are reported.
