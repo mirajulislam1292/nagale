@@ -13,7 +13,8 @@
     "lint": "eslint . --max-warnings 0 && prettier --check .",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "node scripts/check-contrast.mjs && vitest run",
+    "check:contrast": "node scripts/check-contrast.mjs",
     "check:unused": "knip"
   },
   "dependencies": {

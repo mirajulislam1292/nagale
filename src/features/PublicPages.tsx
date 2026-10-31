@@ -1,16 +1,13 @@
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   BriefcaseBusiness,
   UserRound,
   ShieldCheck,
-  BookOpen,
-  Check,
 } from 'lucide-react';
-import { useApp, useCopy, useMarket, useMoney } from '../app/context';
-import { AsyncButton, PageHeading, SectionLink } from '../components/interface';
-import { feeFor, resetDemo } from '../api/marketplace';
+import { useApp, useCopy } from '../app/context';
+import { resetDemo } from '../api/marketplace';
 import type { Role } from '../types/marketplace';
 export function Auth() {
   const { setRole, notify } = useApp();
@@ -158,272 +155,51 @@ export function Auth() {
     </div>
   );
 }
+import {
+  TrustPage,
+  FeesPage,
+  SupportPage,
+  TermsPage,
+  PrivacyPage,
+  NotFoundPage,
+} from './static/StaticPages';
+
 export function Info() {
   const { pathname } = useLocation();
-  const { feeRate } = useMarket();
-  const money = useMoney();
-  const [amount, setAmount] = useState(1500);
-  const fee = feeFor(Math.max(0, Math.round(amount || 0)), feeRate);
-  const { notify } = useApp();
-  const [message, setMessage] = useState('');
-  const [notifyCourse, setNotifyCourse] = useState<string[]>([]);
-  if (pathname === '/fees')
-    return (
-      <div className="reading-page">
-        <PageHeading eyebrow="Pricing" title="A fee you can calculate.">
-          The client pays the agreed order price. A provider service fee is
-          deducted when work is approved.
-        </PageHeading>
-        <section className="fee-calculator panel">
-          <label>
-            Order value (BDT)
-            <input
-              type="number"
-              min={0}
-              max={1000000}
-              value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
-            />
-          </label>
-          <dl className="price-summary">
-            <div>
-              <dt>Client pays</dt>
-              <dd>{money(fee.gross)}</dd>
-            </div>
-            <div>
-              <dt>Service fee ({feeRate * 100}%)</dt>
-              <dd>{money(fee.fee)}</dd>
-            </div>
-            <div>
-              <dt>Provider receives</dt>
-              <dd>{money(fee.net)}</dd>
-            </div>
-          </dl>
-          <p className="small muted">
-            This is the demo fee configuration. The production backend will
-            supply current fees and any payment-processing charges.
-          </p>
-        </section>
-        <SectionLink to="/trust">How escrow works</SectionLink>
-      </div>
-    );
-  if (pathname === '/learning')
-    return (
-      <div className="section-wrap learning-page">
-        <PageHeading
-          eyebrow="Nagale learning"
-          title="Practical skills for better work."
-        >
-          A preview of short guides being prepared for clients and providers.
-        </PageHeading>
-        <div className="course-grid">
-          {[
-            [
-              'Write a clear job brief',
-              'For clients',
-              '12 min',
-              'Scope, budget and a useful description.',
-            ],
-            [
-              'Send a focused proposal',
-              'For providers',
-              '15 min',
-              'Explain your approach and set expectations.',
-            ],
-            [
-              'Make a useful portfolio',
-              'For providers',
-              '18 min',
-              'Show your process and the result.',
-            ],
-            [
-              'Work safely online',
-              'For everyone',
-              '10 min',
-              'Keep your information and payments protected.',
-            ],
-            [
-              'Handle feedback well',
-              'For everyone',
-              '14 min',
-              'Ask clear questions and agree on revisions.',
-            ],
-            [
-              'Deliver a complete handover',
-              'For providers',
-              '16 min',
-              'Package your files and explain the next steps.',
-            ],
-          ].map(([title, audience, time, description]) => (
-            <article className="course" key={title}>
-              <div className="course-art">
-                <BookOpen size={38} strokeWidth={1.5} />
-              </div>
-              <div className="course-body">
-                <h2>{title}</h2>
-                <p>
-                  {audience} · {time}
-                </p>
-                <p>{description}</p>
-                <button
-                  className="button button--outline full"
-                  onClick={() => {
-                    if (title)
-                      setNotifyCourse(
-                        notifyCourse.includes(title)
-                          ? notifyCourse.filter((x) => x !== title)
-                          : [...notifyCourse, title],
-                      );
-                  }}
-                >
-                  {title && notifyCourse.includes(title)
-                    ? 'Saved in this demo'
-                    : 'Save course preview'}
-                  {title && notifyCourse.includes(title) ? (
-                    <Check size={16} />
-                  ) : (
-                    <PlusIcon />
-                  )}
-                </button>
-                <small className="muted">Course preview</small>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    );
-  if (pathname === '/support')
-    return (
-      <div className="reading-page">
-        <PageHeading
-          eyebrow="Help & support"
-          title="Tell us what needs attention."
-        >
-          Use the order workspace for job updates. For platform issues, describe
-          what happened below.
-        </PageHeading>
-        <form className="panel form-stack" onSubmit={(e) => e.preventDefault()}>
-          <label>
-            Topic
-            <select>
-              <option>Using Nagale</option>
-              <option>Order or payment</option>
-              <option>Account or verification</option>
-              <option>Report a concern</option>
-            </select>
-          </label>
-          <label>
-            Order ID (optional)
-            <input placeholder="N-1042" />
-          </label>
-          <label>
-            Your message
-            <textarea
-              rows={6}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </label>
-          <AsyncButton
-            disabled={message.trim().length < 10}
-            onClick={async () => {
-              setMessage('');
-              notify(
-                'Demo support request recorded for this session. Nothing was sent to a support team.',
-              );
-            }}
-          >
-            Submit demo request <ArrowRight size={17} />
-          </AsyncButton>
-        </form>
-      </div>
-    );
-  const trust = pathname === '/trust';
-  return (
-    <div className="reading-page">
-      <PageHeading
-        eyebrow={trust ? 'Trust & safety' : 'Prototype policies'}
-        title={
-          trust
-            ? 'Know what happens to your work.'
-            : pathname === '/privacy'
-              ? 'Your information stays private.'
-              : 'Clear agreements, from the start.'
-        }
-      />
-      {(trust
-        ? [
-            [
-              'Both sides agree',
-              'The brief sets the deliverables, price and deadline. The client chooses a proposal and the provider confirms before funding.',
-            ],
-            [
-              'Payment is held',
-              'The client funds the order. The provider works while payment is held, then submits the delivery. The client reviews before releasing payment.',
-            ],
-            [
-              'Verification has levels',
-              'Phone and selfie, identity and skill checks are separate. Public profiles show verification status, never identity documents or payment accounts.',
-            ],
-            [
-              'Keep conversations on the platform',
-              'Contact details and external links are masked in messages. Repeated attempts are blocked for review. This protects the record of what both sides agreed.',
-            ],
-            [
-              'A human reviews disputes',
-              'If a problem cannot be resolved together, an order can be disputed. Evidence supports a human decision; an AI flag alone does not impose a ban.',
-            ],
-          ]
-        : [
-            [
-              'About this prototype',
-              'Nagale is being developed as a marketplace for digital and locally coordinated services. This preview uses demonstration data and does not process real payments.',
-            ],
-            [
-              'Data in this demo',
-              'Messages and orders remain in temporary browser memory and reset on reload. Your chosen language is saved on this device. Do not enter real identity documents or payment details.',
-            ],
-            [
-              'Before a public launch',
-              'Production policies, data retention, payment terms and support procedures require review before real users or payments are enabled.',
-            ],
-          ]
-      ).map(([title, body]) => (
-        <section className="reading-section" key={title}>
-          <h2>{title}</h2>
-          <p>{body}</p>
-        </section>
-      ))}
-      <SectionLink to="/fees">See the fee calculation</SectionLink>
-    </div>
-  );
+
+  if (pathname === '/fees') return <FeesPage />;
+  if (pathname === '/support') return <SupportPage />;
+  if (pathname === '/trust') return <TrustPage />;
+  if (pathname === '/privacy') return <PrivacyPage />;
+  if (pathname === '/terms') return <TermsPage />;
+
+  return <TrustPage />;
 }
-function PlusIcon() {
-  return <ArrowRight size={16} />;
-}
+
 export function Demo() {
   const { setRole, notify } = useApp();
   const nav = useNavigate();
   return (
-    <div className="reading-page">
-      <PageHeading title="Demo controls">
+    <div className="max-w-[640px] mx-auto py-16 px-4">
+      <h1 className="text-h2 font-bold text-moss-900 mb-2">Demo controls</h1>
+      <p className="text-body text-moss-600 mb-6">
         Explore each workspace with the same sample data.
-      </PageHeading>
-      <div className="button-row">
+      </p>
+      <div className="flex flex-wrap gap-3">
         {(['client', 'provider', 'admin'] as const).map((r) => (
           <button
             key={r}
-            className="button"
+            className="px-4 py-2 bg-moss-900 text-white rounded-sm font-medium hover:bg-moss-800"
             onClick={() => {
               setRole(r);
               nav('/' + r);
             }}
           >
-            {r}
+            Switch to {r}
           </button>
         ))}
         <button
-          className="button button--outline"
+          className="px-4 py-2 border border-moss-200 rounded-sm font-medium text-moss-800 hover:bg-mist"
           onClick={() => {
             resetDemo();
             notify('Demo data reset.');
@@ -435,15 +211,7 @@ export function Demo() {
     </div>
   );
 }
+
 export function NotFound() {
-  return (
-    <div className="reading-page">
-      <PageHeading eyebrow="404" title="This page is not here.">
-        The link may be incomplete. Your workspace is still available.
-      </PageHeading>
-      <Link to="/" className="button">
-        Return to Nagale <ArrowRight size={18} />
-      </Link>
-    </div>
-  );
+  return <NotFoundPage />;
 }
