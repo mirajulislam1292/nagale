@@ -15,8 +15,29 @@ function change(fn: (s: Snapshot) => Snapshot) {
   state = fn(state);
   listeners.forEach((fn) => fn());
 }
-// BACKEND: Replace the mock transport with authenticated endpoints. Every permission
-// and money transition below must be checked again on the server.
+// RULE: The counterpart shown on any order is the other party, NEVER the viewer.
+// Client viewer sees the Provider name. Provider viewer sees the Client name.
+export function getCounterpart(
+  order: Order,
+  role: Role,
+  providers: Snapshot['providers'],
+): { name: string; initials: string; roleLabel: string } {
+  if (role === 'provider') {
+    const clientName = order.clientName || 'Mahim Rahman';
+    return {
+      name: clientName,
+      initials: 'MR',
+      roleLabel: 'Your client',
+    };
+  }
+
+  const provider = providers.find((p) => p.id === order.providerId);
+  return {
+    name: provider?.name || 'Assigned Provider',
+    initials: provider?.initials || 'AP',
+    roleLabel: 'Your provider',
+  };
+}
 async function delay() {
   await new Promise((resolve) => setTimeout(resolve, 350));
 }

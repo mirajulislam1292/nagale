@@ -43,6 +43,7 @@ export interface Order {
   id: string;
   title: string;
   providerId: string;
+  clientName?: string;
   price: number;
   status: OrderStatus;
   clientAccepted: boolean;

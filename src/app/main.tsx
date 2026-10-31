@@ -15,6 +15,7 @@ const work =
       | 'Profile'
       | 'WalletPage'
       | 'Verification'
+      | 'Dispute'
       | 'Admin',
   ) =>
   async () => {
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
       ...['admin', 'admin/disputes', 'admin/verification', 'admin/users'].map(
         (path) => ({ path: '/' + path, lazy: work('Admin') }),
       ),
-      { path: '/orders/:orderId/dispute', lazy: work('OrderDetail') },
+      { path: '/orders/:orderId/dispute', lazy: work('Dispute') },
       { path: '*', lazy: pub('NotFound') },
     ],
   },

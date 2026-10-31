@@ -7,6 +7,7 @@ import {
   getSnapshot,
   actOnOrder,
   sendMessage,
+  getCounterpart,
 } from './marketplace';
 import type { Order } from '../types/marketplace';
 const accepted: Order = {
@@ -138,5 +139,21 @@ describe('mock service enforcement', () => {
     await sendMessage('https://example.com');
     await expect(sendMessage('@someone')).rejects.toThrow();
     expect(getSnapshot().messages.at(-1)?.body).not.toContain('example.com');
+  });
+  it('ensures viewer own name never appears as counterpart', () => {
+    const snap = getSnapshot();
+    const firstOrder = snap.orders[0];
+    if (!firstOrder) throw new Error('No orders in snapshot');
+    const order = firstOrder;
+
+    // Client viewer sees provider, NEVER Mahim Rahman
+    const forClient = getCounterpart(order, 'client', snap.providers);
+    expect(forClient.name).not.toBe('Mahim Rahman');
+    expect(forClient.name).toBe('Nusrat Jahan');
+
+    // Provider viewer sees client, NEVER Nusrat Jahan
+    const forProvider = getCounterpart(order, 'provider', snap.providers);
+    expect(forProvider.name).not.toBe('Nusrat Jahan');
+    expect(forProvider.name).toBe('Mahim Rahman');
   });
 });
