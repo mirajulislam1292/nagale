@@ -167,10 +167,10 @@ export function Hero() {
           {/* Left Column (55%): Display Headline, Supporting, Prompt Box, Chips */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Display Headline */}
-            <h1 className="text-display sm:text-[56px] lg:text-display font-bold leading-none tracking-tight text-white mb-6 text-balance">
+            <h1 className="text-display-mobile md:text-display font-bold leading-none tracking-tight text-white mb-6 text-balance">
               {c(
-                'Describe the job. Agree with trusted talent.',
-                'কাজের বিবরণ দিন। বিশ্বস্ত দক্ষ মানুষের সাথে চুক্তি করুন।',
+                'Describe a job. Compare proposals.',
+                'কাজের বিবরণ দিন। প্রস্তাব তুলনা করুন।',
               )}
             </h1>
 

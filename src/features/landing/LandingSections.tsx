@@ -495,6 +495,7 @@ export function TrustSection() {
               <span>৳50,000</span>
             </div>
             <input
+              aria-label={c('Order value', 'অর্ডারের মূল্য')}
               type="range"
               min={500}
               max={50000}
@@ -634,7 +635,7 @@ export function ProviderCtaSection() {
                   {c(currentExample.why, currentExample.whyBn)}
                 </p>
               </div>
-              <p className="text-caption text-moss-400 text-right mt-3">
+              <p className="text-caption text-moss-700 text-right mt-3">
                 {c(
                   'Click card to see next match →',
                   'পরের কাজের উদাহরণ দেখতে ক্লিক করুন →',
