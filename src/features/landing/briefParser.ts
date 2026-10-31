@@ -188,17 +188,23 @@ export function parseBriefInput(text: string): ParsedBrief {
   );
 
   // 2. Extract budget if mentioned (e.g. "৳2000", "2000 taka", "1500tk", "3000")
-  const budgetMatch = normalisedText.match(
-    /(?:৳|tk|taka)?\s*(\d{3,6})\s*(?:৳|tk|taka|-|\s*to\s*(\d{3,6}))?/i,
-  );
-  let budgetMin = matchedCat ? matchedCat.defaultMin : 1500;
-  let budgetMax = matchedCat ? matchedCat.defaultMax : 3000;
-
-  if (budgetMatch && budgetMatch[1]) {
-    const val1 = parseInt(budgetMatch[1], 10);
-    if (val1 >= 100) {
-      budgetMin = val1;
-      budgetMax = budgetMatch[2] ? parseInt(budgetMatch[2], 10) : val1;
+  const budgetMatch =
+    normalisedText.match(
+      /(?:৳|bdt|budget|বাজেট)\s*([\d,]+)(?:\s*(?:to|-|থেকে)\s*([\d,]+))?/i,
+    ) ||
+    normalisedText.match(
+      /([\d,]+)\s*(?:taka|tk|টাকা)(?:\s*(?:to|-|থেকে)\s*([\d,]+))?/i,
+    );
+  let budgetMin = matchedCat?.defaultMin ?? 0;
+  let budgetMax = matchedCat?.defaultMax ?? 0;
+  if (budgetMatch?.[1]) {
+    const first = Number(budgetMatch[1].replaceAll(',', ''));
+    const second = budgetMatch[2]
+      ? Number(budgetMatch[2].replaceAll(',', ''))
+      : first;
+    if (first >= 100 && second >= first) {
+      budgetMin = first;
+      budgetMax = second;
     }
   }
 
@@ -223,7 +229,7 @@ export function parseBriefInput(text: string): ParsedBrief {
     }
   }
 
-  const category = matchedCat ? matchedCat.name : 'Task assistance';
+  const category = matchedCat?.name ?? '';
   const type = matchedCat ? matchedCat.type : 'digital';
 
   if (type === 'local' && !area) {
@@ -236,7 +242,7 @@ export function parseBriefInput(text: string): ParsedBrief {
 
   const missingFields: string[] = [];
   if (!matchedCat) missingFields.push('specific category');
-  if (!budgetMatch) missingFields.push('exact budget');
+  if (!budgetMin) missingFields.push('budget');
 
   return {
     title: title.slice(0, 90),

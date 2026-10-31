@@ -74,9 +74,7 @@ export function Hero() {
   const { bn, lite } = useApp();
 
   const [prompt, setPrompt] = useState('');
-  const [brief, setBrief] = useState<ParsedBrief>(() =>
-    parseBriefInput('Write my graduate CV'),
-  );
+  const [brief, setBrief] = useState<ParsedBrief>(() => parseBriefInput(''));
   const [selectedProposalId, setSelectedProposalId] = useState<string | null>(
     null,
   );
@@ -90,8 +88,13 @@ export function Hero() {
   // Debounced parsing when user types
   useEffect(() => {
     if (!prompt.trim()) {
-      if (lite) {
+      if (
+        lite ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ) {
         setBrief(parseBriefInput('Write my graduate CV'));
+      } else {
+        setBrief(parseBriefInput(''));
       }
       return;
     }
@@ -112,9 +115,10 @@ export function Hero() {
       : 'Write my graduate CV';
     let charIndex = 0;
 
+    let interval: ReturnType<typeof setInterval> | undefined;
     const timeout = setTimeout(() => {
       if (hasInteracted) return;
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (hasInteracted || charIndex >= demoText.length) {
           clearInterval(interval);
           return;
@@ -126,7 +130,10 @@ export function Hero() {
       return () => clearInterval(interval);
     }, 1200);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
   }, [hasInteracted, lite, bn]);
 
   const handleStartInteraction = () => {
@@ -261,46 +268,73 @@ export function Hero() {
             aria-label="Live job brief and proposals"
           >
             {/* Real JobBriefCard */}
-            <JobBriefCard
-              brief={{
-                title: brief.title || 'Write my graduate CV',
-                category: brief.category || 'CV writing',
-                type: brief.type,
-                budgetMin: brief.budgetMin || 1500,
-                budgetMax: brief.budgetMax || 2000,
-                deadline: brief.deadline || '3 days',
-                area: brief.area,
-              }}
-              missingFields={brief.missingFields}
-              className="transition-all duration-200"
-            />
-
+            {brief.category ? (
+              <JobBriefCard
+                brief={{
+                  title: brief.title || 'Write my graduate CV',
+                  category: brief.category || 'CV writing',
+                  type: brief.type,
+                  budgetMin: brief.budgetMin || 1500,
+                  budgetMax: brief.budgetMax || 2000,
+                  deadline: brief.deadline || '3 days',
+                  area: brief.area,
+                }}
+                missingFields={brief.missingFields}
+                className="transition-all duration-200"
+              />
+            ) : (
+              <div className="p-6 bg-white border border-moss-200 rounded-md">
+                <h2 className="text-h3 text-moss-900">
+                  {c(
+                    'Your brief appears here',
+                    'আপনার কাজের বিবরণ এখানে দেখা যাবে',
+                  )}
+                </h2>
+                <p className="text-body text-moss-600 mt-4">
+                  {prompt
+                    ? c('Needs a little more detail', 'আরেকটু বিস্তারিত বলুন')
+                    : c(
+                        'Describe your task to begin.',
+                        'শুরু করতে আপনার কাজের বিবরণ দিন।',
+                      )}
+                </p>
+              </div>
+            )}
             {/* Live Proposals Stack */}
             <div className="flex flex-col gap-3">
-              {SAMPLE_PROPOSALS.slice(0, chosenProposal ? 1 : 2).map(
-                (proposal) => {
-                  const active = chosenProposal
-                    ? chosenProposal.id === proposal.id
-                    : true;
-                  if (!active) return null;
+              {(brief.category && brief.budgetMin
+                ? SAMPLE_PROPOSALS.map((p, i) => ({
+                    ...p,
+                    price: Math.round(
+                      brief.budgetMin +
+                        ((brief.budgetMax - brief.budgetMin) * (i + 1)) / 4,
+                    ),
+                  })).filter(
+                    (p) => !chosenProposal || p.id === chosenProposal.id,
+                  )
+                : []
+              ).map((proposal) => {
+                const active = chosenProposal
+                  ? chosenProposal.id === proposal.id
+                  : true;
+                if (!active) return null;
 
-                  return (
-                    <ProposalCard
-                      key={proposal.id}
-                      proposal={proposal}
-                      selected={selectedProposalId === proposal.id}
-                      onSelect={(id) =>
-                        setSelectedProposalId(
-                          selectedProposalId === id ? null : id,
-                        )
-                      }
-                      onAccept={handleChooseProposal}
-                      showCompare={!chosenProposal}
-                      className="animate-in fade-in slide-in-from-bottom-2 duration-200"
-                    />
-                  );
-                },
-              )}
+                return (
+                  <ProposalCard
+                    key={proposal.id}
+                    proposal={proposal}
+                    selected={selectedProposalId === proposal.id}
+                    onSelect={(id) =>
+                      setSelectedProposalId(
+                        selectedProposalId === id ? null : id,
+                      )
+                    }
+                    onAccept={handleChooseProposal}
+                    showCompare={!chosenProposal}
+                    className="animate-in fade-in slide-in-from-bottom-2 duration-200"
+                  />
+                );
+              })}
             </div>
 
             {/* Escrow row: when proposal chosen */}
@@ -332,7 +366,7 @@ export function Hero() {
             )}
 
             {/* Quiet disclaimer */}
-            <p className="text-caption text-moss-400 text-center select-none pt-1">
+            <p className="text-caption text-moss-500 select-none pt-1">
               {c(
                 'Example. Real proposals come from verified providers.',
                 'নমুনা প্রদর্শন। প্রকৃত প্রস্তাব যাচাইকৃত সেবাদাতাদের কাছ থেকে আসে।',
