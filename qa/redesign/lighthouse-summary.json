@@ -1,0 +1,12 @@
+{
+  "url": "https://nagale.vercel.app/",
+  "scores": {
+    "performance": 60,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 92
+  },
+  "lcp": "2.5\u00a0s",
+  "cls": "0",
+  "tbt": "1,370\u00a0ms"
+}

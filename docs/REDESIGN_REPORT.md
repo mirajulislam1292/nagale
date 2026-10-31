@@ -20,3 +20,9 @@ Tier 3: auth/selfie, attachment/masking UI, verification proof panels, dedicated
 ### Tier 1 verification result
 
 33 initial viewport/locale checks completed with no JavaScript errors. Two mobile attachment-label findings were fixed. Nine targeted follow-up checks passed with no serious/critical axe findings or page overflow. All 41 existing tests passed. Lint, TypeScript and build passed. Screenshot inspection covered the full desktop and mobile landing layouts. Tier 1 is the delivery boundary selected under the work-order credit discipline; Tier 2 and Tier 3 are explicitly outstanding.
+
+### Production measurement and delivery status
+
+Live Tier 1 design verified at https://nagale.vercel.app. Lighthouse mobile: Performance 60, Accessibility 100, Best Practices 100, SEO 92. LCP 2.5s, CLS 0, TBT 1370ms. The performance target is not met, so the hard gate remains incomplete. The report identifies main-thread work (including style/layout and script evaluation) as the primary cost; this has not been corrected or represented as passing. Tier 2 and Tier 3 have not started in this run.
+
+Live provider check: one app bar, zero marketing headers, zero marketing footers. Evidence: qa/redesign/live-landing-preview.png. Full Lighthouse JSON remains local in qa/redesign/lighthouse.json; summary is versioned.
