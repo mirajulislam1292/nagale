@@ -1,0 +1,420 @@
+{
+  "errors": [],
+  "results": [
+    {
+      "route": "/",
+      "width": 320,
+      "overflow": true,
+      "violations": []
+    },
+    {
+      "route": "/auth",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client",
+      "width": 320,
+      "overflow": true,
+      "violations": []
+    },
+    {
+      "route": "/provider",
+      "width": 320,
+      "overflow": true,
+      "violations": []
+    },
+    {
+      "route": "/client/new",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/gigs/g1",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/feed/g1",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/orders/N-1041",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/messages",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/wallet",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/wallet",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/onboarding",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/p/nusrat",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/admin",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/trust",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/fees",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/learning",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/support",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/not-found",
+      "width": 320,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/auth",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/new",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/gigs/g1",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/feed/g1",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/orders/N-1041",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/messages",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/wallet",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/wallet",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/onboarding",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/p/nusrat",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/admin",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/trust",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/fees",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/learning",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/support",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/not-found",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/auth",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/new",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/gigs/g1",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/feed/g1",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "width": 1280,
+      "overflow": false,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [["div:nth-child(5) > p"]]
+        }
+      ]
+    },
+    {
+      "route": "/provider/orders/N-1041",
+      "width": 1280,
+      "overflow": false,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [["div:nth-child(4) > p"], ["div:nth-child(5) > p"]]
+        }
+      ]
+    },
+    {
+      "route": "/client/messages",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/client/wallet",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/wallet",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/provider/onboarding",
+      "width": 1280,
+      "overflow": false,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            ["section:nth-child(1) > .large-number"],
+            ["section:nth-child(2) > .large-number"],
+            ["section:nth-child(3) > .large-number"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/p/nusrat",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/admin",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/trust",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/fees",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/learning",
+      "width": 1280,
+      "overflow": false,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            ["article:nth-child(1) > .course-art > span"],
+            ["article:nth-child(2) > .course-art > span"],
+            ["article:nth-child(3) > .course-art > span"],
+            ["article:nth-child(4) > .course-art > span"],
+            ["article:nth-child(5) > .course-art > span"],
+            ["article:nth-child(6) > .course-art > span"]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/support",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/not-found",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "locale": "bn",
+      "width": 360,
+      "overflow": false
+    }
+  ]
+}

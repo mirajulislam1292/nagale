@@ -1,4 +1,9 @@
 {
-  "entry": ["src/app/main.tsx", "src/**/*.test.ts"],
-  "project": ["src/**/*.{ts,tsx}"]
+  "entry": [
+    "src/app/main.tsx",
+    "src/**/*.test.ts",
+    "src/features/*.tsx",
+    "scripts/*.mjs"
+  ],
+  "project": ["src/**/*.{ts,tsx}", "scripts/*.mjs"]
 }

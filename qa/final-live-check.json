@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "route": "/",
+      "http": 200,
+      "title": "Tell us whatneeds doing.",
+      "width": 320,
+      "scrollWidth": 320,
+      "violations": []
+    },
+    {
+      "route": "/client",
+      "http": 200,
+      "title": "Good to see you, Mahim.",
+      "width": 320,
+      "scrollWidth": 531,
+      "violations": []
+    },
+    {
+      "route": "/provider",
+      "http": 200,
+      "title": "Good to see you, Nusrat.",
+      "width": 320,
+      "scrollWidth": 531,
+      "violations": []
+    },
+    {
+      "route": "/client/orders/N-1042",
+      "http": 200,
+      "title": "Graduate CV and cover letter",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "violations": []
+    },
+    {
+      "route": "/provider/onboarding",
+      "http": 200,
+      "title": "Build a profile clients can trust.",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "violations": []
+    },
+    {
+      "route": "/learning",
+      "http": 200,
+      "title": "Practical skills for better work.",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "violations": []
+    },
+    {
+      "route": "/",
+      "http": 200,
+      "title": "Tell us whatneeds doing.",
+      "width": 1280,
+      "scrollWidth": 1280,
+      "violations": []
+    }
+  ],
+  "demoEntry": true
+}

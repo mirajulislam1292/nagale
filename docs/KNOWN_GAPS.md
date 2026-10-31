@@ -1,9 +1,14 @@
 # Known gaps
 
-This is an infrastructure scaffold, not the completed Nagale frontend.
+The current build is a functional visual prototype, not a completed implementation of every master-spec requirement.
 
-- Build order step 2 is blocked: GitHub plugin is not connected and the local Git credential helper returned no GitHub credential. Private repository creation and push have not occurred.
-- The new Git-connected Vercel project and shell deployment have not been created. Existing nagale.app remains unchanged.
-- Product screens, brand exports, locale implementation, typed domain API, mocks, privacy enforcement and component system remain unimplemented.
-- Full browser, accessibility, Lighthouse and screenshot QA have not run. No product acceptance or release tag is claimed.
-- Node 20 is configured for CI and deployment; local baseline checks used the installed Node 23.10.0 runtime. Node 20 execution still needs validation.
+- No real authentication, AI, KYC, upload handling, payments, payout requests, CMS, messaging backend or notifications. No real identity or payment information is collected.
+- English complete; Bangla partial. Translation namespaces, parity scripts and full native review remain.
+- Admin routes currently share a sample flag-review queue; dedicated verification/users/dispute resolution queues, sanctions and appeals remain.
+- Provider profile editing, file attachments/delivery, structured review submission, exact matching and full seed-data volume remain.
+- Demo mode is always enabled in this prototype. It must not be enabled for real customer data. There is no production authorisation layer.
+- New data resets on reload; only language and brief draft are persisted. Message drafts and a universal unsaved-changes guard remain.
+- /styleguide, generated handoff checks, exact design-token audit, full logo/favicon set review, OG image, service worker and analytics interface remain.
+- Dependency advisories remain from the pinned dependency versions; audit and remediation are required before real-user launch.
+- Lighthouse scores and full screen-reader verification have not been measured. Browser findings and follow-up fixes are recorded in QA_REPORT, without claiming unrun checks.
+- The complete frontend is prepared locally for publishing; GitHub source synchronisation status is recorded in the delivery note.

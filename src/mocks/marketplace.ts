@@ -1,0 +1,249 @@
+import type { Snapshot } from '../types/marketplace';
+export function createSeed(): Snapshot {
+  return {
+    feeRate: 0.1,
+    providers: [
+      {
+        id: 'nusrat',
+        name: 'Nusrat Jahan',
+        initials: 'NJ',
+        headline: 'CV writer & career document specialist',
+        area: 'Dhanmondi, Dhaka',
+        skills: ['CV writing', 'Translation'],
+        rating: 4.9,
+        completed: 38,
+        price: 1200,
+        verified: true,
+        bio: 'I help graduates turn their experience into clear, well-structured CVs. Every project includes an editable document and one round of revisions.',
+      },
+      {
+        id: 'tanvir',
+        name: 'Tanvir Ahmed',
+        initials: 'TA',
+        headline: 'Web designer & frontend developer',
+        area: 'Uttara, Dhaka',
+        skills: ['Web development', 'Design'],
+        rating: 4.8,
+        completed: 24,
+        price: 18000,
+        verified: true,
+        bio: 'Practical websites for small businesses. I focus on responsive layouts, accessible content and a straightforward handover.',
+      },
+      {
+        id: 'farhana',
+        name: 'Farhana Akter',
+        initials: 'FA',
+        headline: 'Graphic designer & presentation specialist',
+        area: 'Mirpur, Dhaka',
+        skills: ['Design', 'Presentations'],
+        rating: 4.9,
+        completed: 46,
+        price: 2500,
+        verified: true,
+        bio: 'I design presentations, social media layouts and print-ready brand materials. My process starts with a clear brief and a first draft for review.',
+      },
+      {
+        id: 'rafiul',
+        name: 'Rafiul Islam',
+        initials: 'RI',
+        headline: 'Photographer for products & small events',
+        area: 'Gulshan, Dhaka',
+        skills: ['Photography', 'Local services'],
+        rating: 4.7,
+        completed: 19,
+        price: 4000,
+        verified: true,
+        bio: 'Product and event photography across Dhaka. We agree on the location, shot list and delivery format before the booking begins.',
+      },
+    ],
+    gigs: [
+      {
+        id: 'g1',
+        title: 'Write a graduate CV for an internship application',
+        category: 'CV writing',
+        type: 'digital',
+        summary:
+          'A one-page CV for a business graduate applying for marketing internships. Include an editable copy and one revision.',
+        budget: 1500,
+        area: 'Anywhere in Bangladesh',
+        deadline: '2026-11-07',
+        status: 'open',
+        proposals: 3,
+      },
+      {
+        id: 'g2',
+        title: 'Build a website for a neighbourhood bakery',
+        category: 'Web development',
+        type: 'digital',
+        summary:
+          'A responsive four-page website with a menu, opening hours and enquiry form. Content and product photos will be provided.',
+        budget: 22000,
+        area: 'Anywhere in Bangladesh',
+        deadline: '2026-11-14',
+        status: 'open',
+        proposals: 2,
+      },
+      {
+        id: 'g3',
+        title: 'Photograph 12 handmade products',
+        category: 'Photography',
+        type: 'local',
+        summary:
+          'Clean product photographs on a neutral background. One half-day session, edited images delivered digitally.',
+        budget: 4500,
+        area: 'Dhanmondi, Dhaka',
+        deadline: '2026-11-10',
+        status: 'open',
+        proposals: 1,
+      },
+      {
+        id: 'g4',
+        title: 'Design a presentation for a university project',
+        category: 'Design',
+        type: 'digital',
+        summary:
+          'Turn supplied content into a clear 15-slide presentation. Deliver both editable slides and a PDF.',
+        budget: 2500,
+        area: 'Anywhere in Bangladesh',
+        deadline: '2026-11-09',
+        status: 'open',
+        proposals: 2,
+      },
+    ],
+    proposals: [
+      {
+        id: 'p1',
+        gigId: 'g1',
+        providerId: 'nusrat',
+        price: 1200,
+        days: 2,
+        message:
+          'I can structure your experience into a one-page CV, with an editable version and one revision. Please share the role requirements after booking.',
+      },
+      {
+        id: 'p2',
+        gigId: 'g1',
+        providerId: 'farhana',
+        price: 1500,
+        days: 3,
+        message:
+          'I can prepare a clean, readable CV layout and help organise your education and project experience.',
+      },
+      {
+        id: 'p3',
+        gigId: 'g1',
+        providerId: 'tanvir',
+        price: 1400,
+        days: 3,
+        message:
+          'I can format your existing content into a professional CV and provide an editable copy.',
+      },
+      {
+        id: 'p4',
+        gigId: 'g2',
+        providerId: 'tanvir',
+        price: 20000,
+        days: 7,
+        message:
+          'I can build the four pages, optimise for mobile and provide a complete handover.',
+      },
+    ],
+    orders: [
+      {
+        id: 'N-1042',
+        title: 'Graduate CV and cover letter',
+        providerId: 'nusrat',
+        price: 1500,
+        status: 'delivered',
+        clientAccepted: true,
+        providerAccepted: true,
+        delivery:
+          'Your first draft is ready. Please review the structure and wording. One revision is included.',
+        privateDetails: {
+          workspaceNotes:
+            'Approved brief and project materials are available to the two order participants.',
+        },
+        events: [
+          {
+            text: 'Proposal accepted by both parties',
+            at: '2026-10-29T08:00:00Z',
+          },
+          { text: 'Payment held in escrow', at: '2026-10-29T08:05:00Z' },
+          { text: 'First draft delivered', at: '2026-10-30T12:00:00Z' },
+        ],
+      },
+      {
+        id: 'N-1041',
+        title: 'Social media launch templates',
+        providerId: 'farhana',
+        price: 3000,
+        status: 'details_unlocked',
+        clientAccepted: true,
+        providerAccepted: true,
+        privateDetails: {
+          workspaceNotes:
+            'The agreed brief covers six editable social media templates.',
+        },
+        events: [{ text: 'Order started', at: '2026-10-28T10:00:00Z' }],
+      },
+      {
+        id: 'N-1038',
+        title: 'Product catalogue layout',
+        providerId: 'farhana',
+        price: 2500,
+        status: 'completed',
+        clientAccepted: true,
+        providerAccepted: true,
+        events: [
+          {
+            text: 'Delivery approved and payment released',
+            at: '2026-10-24T10:00:00Z',
+          },
+        ],
+      },
+    ],
+    messages: [
+      {
+        id: 'm1',
+        sender: 'provider',
+        body: 'I have received your brief. Would you prefer a single-page CV?',
+        at: '09:30',
+      },
+      {
+        id: 'm2',
+        sender: 'you',
+        body: 'Yes, one page please. Focus on my university projects.',
+        at: '09:32',
+      },
+      {
+        id: 'm3',
+        sender: 'provider',
+        body: 'Understood. I will share a first draft here for your review.',
+        at: '09:35',
+      },
+    ],
+    cases: [
+      {
+        id: 'F-301',
+        subject: 'Message in N-1042',
+        reason: 'Attempted off-platform contact',
+        risk: 'medium',
+        status: 'open',
+      },
+      {
+        id: 'F-302',
+        subject: 'Provider portfolio',
+        reason: 'Ownership of work needs review',
+        risk: 'low',
+        status: 'open',
+      },
+      {
+        id: 'F-303',
+        subject: 'Repeated payment request',
+        reason: 'Payment outside the order workspace',
+        risk: 'high',
+        status: 'open',
+      },
+    ],
+  };
+}

@@ -1,0 +1,7 @@
+{
+  "proposalAcceptance": true,
+  "bothPartyAgreement": true,
+  "escrow": true,
+  "providerDelivery": true,
+  "clientApproval": true
+}
