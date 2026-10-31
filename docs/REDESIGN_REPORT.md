@@ -16,3 +16,7 @@ Tier 3: auth/selfie, attachment/masking UI, verification proof panels, dedicated
 ## Verification
 
 41 existing tests passed. Lint and strict type-check/build are run before publishing. Responsive/axe results are saved under qa/redesign/results.json. Lighthouse production results are recorded separately when available. No inferred performance scores are reported.
+
+### Tier 1 verification result
+
+33 initial viewport/locale checks completed with no JavaScript errors. Two mobile attachment-label findings were fixed. Nine targeted follow-up checks passed with no serious/critical axe findings or page overflow. All 41 existing tests passed. Lint, TypeScript and build passed. Screenshot inspection covered the full desktop and mobile landing layouts. Tier 1 is the delivery boundary selected under the work-order credit discipline; Tier 2 and Tier 3 are explicitly outstanding.

@@ -1,0 +1,62 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "route": "/",
+      "bn": false,
+      "width": 360,
+      "pageWidth": 360,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": false,
+      "width": 768,
+      "pageWidth": 768,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": false,
+      "width": 1280,
+      "pageWidth": 1280,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": true,
+      "width": 360,
+      "pageWidth": 360,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": true,
+      "width": 768,
+      "pageWidth": 768,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": true,
+      "width": 1280,
+      "pageWidth": 1280,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "pageWidth": 320
+    },
+    {
+      "route": "/client",
+      "width": 320,
+      "pageWidth": 320
+    },
+    {
+      "route": "/provider",
+      "width": 320,
+      "pageWidth": 320
+    }
+  ]
+}
