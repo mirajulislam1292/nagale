@@ -29,7 +29,9 @@ export function AuthPage() {
 
   // Multi-step signup state: 1: role, 2: phone, 3: otp, 4: name, 5: selfie (provider only)
   const [step, setStep] = useState(1);
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState(
+    () => sessionStorage.getItem('nagale.loginPhone')?.replace(/^0/, '') || '',
+  );
   const [otp, setOtp] = useState('');
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState('');

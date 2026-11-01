@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useRef, useId, type ReactNode } from 'react';
 import { X, AlertCircle, Info, CheckCircle2 } from 'lucide-react';
 import { Button } from './Button';
 
@@ -117,19 +117,54 @@ export function Modal({
   children: ReactNode;
   maxWidth?: string;
 }) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const titleId = useId();
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+    if (!open) return;
+    const previous =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    const overflow = document.body.style.overflow;
+    const focusables = () =>
+      Array.from(
+        dialogRef.current?.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex="0"]',
+        ) ?? [],
+      );
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeRef.current();
+      }
+      if (event.key !== 'Tab') return;
+      const elements = focusables();
+      const first = elements[0];
+      const last = elements.at(-1);
+      if (!first || !last) {
+        event.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-    if (open) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
+    document.body.style.overflow = 'hidden';
+    (focusables()[0] ?? dialogRef.current)?.focus();
+    window.addEventListener('keydown', handler);
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = overflow;
+      window.removeEventListener('keydown', handler);
+      previous?.focus();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open) return null;
 
@@ -143,18 +178,24 @@ export function Modal({
       />
       {/* Dialog box - Radius 20 for modal */}
       <div
+        ref={dialogRef}
+        tabIndex={-1}
+        aria-labelledby={title ? titleId : undefined}
+        aria-label={title ? undefined : 'Dialog'}
         role="dialog"
         aria-modal="true"
         className={`relative z-10 w-full ${maxWidth} bg-white rounded-lg p-6 shadow-e2 border border-moss-200 overflow-hidden`}
       >
         <div className="flex items-center justify-between pb-3 mb-4 border-b border-moss-100">
           {title && (
-            <h2 className="text-lead font-bold text-moss-900">{title}</h2>
+            <h2 id={titleId} className="text-lead font-bold text-moss-900">
+              {title}
+            </h2>
           )}
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="p-1 text-moss-400 hover:text-moss-700 rounded-sm"
+            className="p-3 text-moss-600 hover:text-moss-900 rounded-sm"
           >
             <X size={20} />
           </button>

@@ -9,7 +9,7 @@ import {
   Clock,
 } from 'lucide-react';
 
-export interface BadgeProps {
+interface BadgeProps {
   children?: ReactNode;
   tone?: 'neutral' | 'success' | 'warning' | 'danger' | 'info';
   icon?: ReactNode;

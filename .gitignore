@@ -12,3 +12,8 @@ test-results/
 
 qa/screenshots/
 qa/redesign/*.png
+qa/final-master/*.png
+qa/standalone/*.png
+output/
+tmp/
+qa/page-capture/

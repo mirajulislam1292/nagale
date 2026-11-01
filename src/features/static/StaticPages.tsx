@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Lock,
@@ -493,14 +493,24 @@ export function PrivacyPage() {
 // 6. 404 Not Found (/404 or *)
 export function NotFoundPage() {
   const c = useCopy();
+  useEffect(() => {
+    let meta = document.querySelector<HTMLMetaElement>('meta[name=robots]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'robots';
+      document.head.append(meta);
+    }
+    meta.content = 'noindex';
+    return () => meta?.remove();
+  }, []);
 
   return (
     <div className="relative w-full min-h-[600px] flex items-center justify-center bg-mist py-20 overflow-hidden">
       <ArcsPattern variant="error" />
 
-      <LayoutContainer className="relative z-10 text-center max-w-lg">
+      <LayoutContainer className="relative z-10 max-w-lg">
         <span className="text-caption font-mono uppercase tracking-widest text-deep-600 font-bold block mb-3">
-          404 Error
+          404
         </span>
         <h1 className="text-h2 sm:text-h1 font-bold text-moss-900 mb-4 tracking-tight">
           {c('This page could not be found.', 'পৃষ্ঠাটি খুঁজে পাওয়া যায়নি।')}

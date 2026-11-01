@@ -1,3 +1,4 @@
+import { tokens } from '../lib/tokens';
 import { useState } from 'react';
 import { Lock, Search, ShieldAlert } from 'lucide-react';
 import { LayoutContainer } from '../components/layout/LayoutContainer';
@@ -52,7 +53,7 @@ export function Component() {
   const { bn, setBn, lite, setLite } = useApp();
   const c = useCopy();
 
-  const [phone, setPhone] = useState('01712345678');
+  const [phone, setPhone] = useState('');
   const [otp, setOtp] = useState('123456');
   const [money, setMoney] = useState(2500);
   const [checked, setChecked] = useState(true);
@@ -130,6 +131,25 @@ export function Component() {
           </div>
         </div>
 
+        <section className="mb-12">
+          <h2 className="text-h3">{c('Brand colours', 'ব্র্যান্ডের রং')}</h2>
+          <div className="flex gap-4 flex-wrap mt-6">
+            {Object.entries({
+              Mint: tokens.colors.mint[500],
+              Moss: tokens.colors.moss[900],
+              Deep: tokens.colors.deep[600],
+              Mist: tokens.colors.mist,
+            }).map(([name, color]) => (
+              <div key={name}>
+                <div
+                  style={{ backgroundColor: color, width: 64, height: 64 }}
+                />
+                <p>{name}</p>
+                <p>{color}</p>
+              </div>
+            ))}
+          </div>
+        </section>
         {/* Section 1: Brand & Logo */}
         <section className="mb-14">
           <h2 className="text-h3 font-bold text-moss-900 mb-6">

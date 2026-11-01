@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { Button } from './Button';
 
-export interface FileDropzoneProps {
+interface FileDropzoneProps {
   accept?: string;
   maxSizeMb?: number;
   label?: string;

@@ -10,18 +10,12 @@ import {
 } from 'react';
 
 // Normalise Bangla digits to Latin digits
-export function parseBanglaDigits(str: string): string {
+function parseBanglaDigits(str: string): string {
   const banglaDigits = '০১২৩৪৫৬৭৮৯';
   return str.replace(/[০-৯]/g, (d) => String(banglaDigits.indexOf(d)));
 }
 
-// Convert Latin digits to Bangla digits
-export function toBanglaDigits(str: string | number): string {
-  const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-  return String(str).replace(/\d/g, (d) => banglaDigits[Number(d)] ?? d);
-}
-
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
   hint?: string;
@@ -64,8 +58,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   );
 });
 
-export interface TextareaProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   error?: string;
   hint?: string;
@@ -111,7 +104,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   },
 );
 
-export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   error?: string;
   hint?: string;
@@ -169,7 +162,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 );
 
 // PhoneInput with +880 prefix, BD mobile validation (013-019), accepts Bangla digits
-export interface PhoneInputProps {
+interface PhoneInputProps {
   value: string;
   onChange: (value: string) => void;
   label?: string;
@@ -227,7 +220,7 @@ export function PhoneInput({
 }
 
 // OtpInput: 6 distinct boxes, paste, autofill, resend timer
-export interface OtpInputProps {
+interface OtpInputProps {
   value: string;
   onChange: (value: string) => void;
   length?: number;
@@ -306,7 +299,7 @@ export function OtpInput({
 }
 
 // MoneyInput: prefix ৳, integer amount
-export interface MoneyInputProps {
+interface MoneyInputProps {
   value: number;
   onChange: (value: number) => void;
   label?: string;

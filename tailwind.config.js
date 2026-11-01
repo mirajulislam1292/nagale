@@ -48,6 +48,10 @@ export default {
         bold: '700',
       },
       fontSize: {
+        'display-mobile': [
+          '44px',
+          { lineHeight: '48px', letterSpacing: '-0.03em' },
+        ],
         caption: ['12px', { lineHeight: '18px' }],
         small: ['14px', { lineHeight: '22px' }],
         body: ['16px', { lineHeight: '26px' }],

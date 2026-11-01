@@ -2,7 +2,7 @@ import { FileText, Calendar, MapPin, AlertCircle } from 'lucide-react';
 import { Card } from './Card';
 import { DigitalBadge, LocalBadge } from './Badge';
 
-export interface BriefData {
+interface BriefData {
   title: string;
   category: string;
   type: 'digital' | 'local';
