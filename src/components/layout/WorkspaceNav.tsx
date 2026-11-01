@@ -22,7 +22,7 @@ import type { Role } from '../../types/marketplace';
 // Provider (verified): "Nusrat Jahan"
 // Provider (new): "Rafiul Islam"
 // Admin: "Admin"
-export function getUserDetails(role: Role) {
+function getUserDetails(role: Role) {
   switch (role) {
     case 'provider':
       return {

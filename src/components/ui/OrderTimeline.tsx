@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 import type { OrderStatus } from '../../types/marketplace';
 
 // RULE: 6-step OrderTimeline: Accepted, Escrow funded, Details unlocked, Delivered, Review, Payout.
-export const ORDER_STEPS = [
+const ORDER_STEPS = [
   { id: 'accepted', label: 'Accepted', bnLabel: 'সম্মতি' },
   { id: 'escrow_funded', label: 'Escrow funded', bnLabel: 'টাকা সুরক্ষিত' },
   { id: 'details_unlocked', label: 'Details unlocked', bnLabel: 'কাজ শুরু' },
@@ -11,7 +11,7 @@ export const ORDER_STEPS = [
   { id: 'payout', label: 'Payout', bnLabel: 'পেমেন্ট সম্পন্ন' },
 ] as const;
 
-export function getStepIndex(status: OrderStatus): number {
+function getStepIndex(status: OrderStatus): number {
   switch (status) {
     case 'accepted':
       return 0;

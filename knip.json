@@ -3,7 +3,9 @@
     "src/app/main.tsx",
     "src/**/*.test.ts",
     "src/features/*.tsx",
-    "scripts/*.mjs"
+    "scripts/*.mjs",
+    "src/app/layout.tsx",
+    "src/features/gate/*.tsx"
   ],
   "project": ["src/**/*.{ts,tsx}", "scripts/*.mjs"]
 }

@@ -1,6 +1,6 @@
 import { type HTMLAttributes, type ReactNode } from 'react';
 
-export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   variant?: 'flat' | 'raised' | 'moss';
   className?: string;
@@ -29,7 +29,7 @@ export function Card({
   );
 }
 
-export interface StatTileProps {
+interface StatTileProps {
   label: string;
   value: ReactNode;
   sublabel: string;

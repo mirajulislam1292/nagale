@@ -6,7 +6,7 @@ export type OrderStatus =
   | 'delivered'
   | 'completed'
   | 'disputed';
-export interface Provider {
+interface Provider {
   id: string;
   name: string;
   initials: string;

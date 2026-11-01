@@ -1,7 +1,7 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { LoaderCircle } from 'lucide-react';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'strong' | 'secondary' | 'tertiary';
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
@@ -74,8 +74,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 
-export interface IconButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'primary' | 'strong' | 'secondary' | 'tertiary';

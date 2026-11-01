@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react';
 
-export interface AvatarProps {
+interface AvatarProps {
   initials?: string;
   src?: string;
   alt?: string;
