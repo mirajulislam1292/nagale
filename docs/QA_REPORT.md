@@ -46,3 +46,9 @@ All 36 application routes have been redesigned and delivered across three verifi
 - **ESLint & Prettier:** Clean code style across all components (`npm run lint`).
 - **Unit Tests:** 42/42 tests pass with Vitest (`npm run test`).
 - **Bundle Size:** Landing page < 100 KB gzip (achieved: 9.45 kB gzip), all chunks well within strict performance budget.
+
+## Final master prompt: authoritative current status
+
+Earlier route-completion tables describe the prior architecture and do not prove compliance with the new final master. New Gate and About are implemented; final-master app-feed/social routing, guards and complete i18n migration are not complete. Main has not been merged by this change.
+
+Lint, strict types, knip, 50 unit tests and 13 contrast-pair tests passed. Gate/About were captured EN/BN at 360, 768, 1280. Initial mobile About overflow was fixed. Settled-state phone follow-up at 360x800: Gate scrollHeight=clientHeight=800 in both languages, no horizontal overflow; About fits width 360; no serious/critical axe issues in these four checks. Example proposal selection and unknown-request handling passed. Screenshots and JSON: qa/final-master. Lighthouse production scores for this final-master build are not available; old scores must not be reused.

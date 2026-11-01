@@ -7,3 +7,5 @@ Preferred glossary: job = কাজ; proposal = প্রস্তাব; provid
 Native review requested: “টাকা সুরক্ষিত থাকে” for payment holding, “ক্লায়েন্ট” versus “গ্রাহক”, and “অভিযোগ” versus “বিরোধ”. Translated pairs currently live near their components through useCopy; migration to JSON namespaces and key validation remains outstanding.
 
 Premium Tier 1 additions for native review: “কাজের বিবরণ দিন, সঠিক মানুষ খুঁজুন”, “টাকা সুরক্ষিত রাখুন” for paying into escrow, “ধাপে ধাপে যাচাই”, and “আপনার দক্ষতায় পরের সুযোগ তৈরি করুন”. These phrases are implemented, but native product-language review is still recommended. Workspace translation remains partial as previously documented.
+
+Final master Gate/About review: “কাজ হোক নিশ্চিন্তে”, “পেমেন্ট ছাড়া হয়েছে”, “টাকা সুরক্ষিত রাখুন”, “সেবাদাতা” versus “সেবা প্রদানকারী”. New content is in src/content/gate.ts and src/content/about.ts; the rest of the marketplace still requires the complete i18n-key migration.

@@ -60,7 +60,7 @@ export default {
         h3: ['28px', { lineHeight: '36px', letterSpacing: '-0.01em' }],
         h2: ['40px', { lineHeight: '48px', letterSpacing: '-0.02em' }],
         h1: ['56px', { lineHeight: '60px', letterSpacing: '-0.025em' }],
-        display: ['72px', { lineHeight: '76px', letterSpacing: '-0.03em' }],
+        display: ['64px', { lineHeight: '68px', letterSpacing: '-0.03em' }],
       },
       borderRadius: {
         sm: '6px',

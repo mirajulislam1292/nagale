@@ -41,12 +41,12 @@ export const tokens = {
     },
   },
   typography: {
-    display: { size: 72, lineHeight: 76, mobileSize: 44, mobileLineHeight: 48 },
+    display: { size: 64, lineHeight: 68, mobileSize: 40, mobileLineHeight: 44 },
     displayBn: {
-      size: 60,
-      lineHeight: 80,
-      mobileSize: 38,
-      mobileLineHeight: 54,
+      size: 56,
+      lineHeight: 76,
+      mobileSize: 36,
+      mobileLineHeight: 52,
     },
     h1: { size: 56, lineHeight: 60, mobileSize: 36, mobileLineHeight: 42 },
     h2: { size: 40, lineHeight: 48, mobileSize: 28, mobileLineHeight: 36 },
