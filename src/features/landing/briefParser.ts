@@ -1,4 +1,6 @@
-import { parseBanglaDigits } from '../../components/ui/Input';
+function parseBanglaDigits(value: string) {
+  return value.replace(/[০-৯]/g, (d) => String('০১২৩৪৫৬৭৮৯'.indexOf(d)));
+}
 
 export interface ParsedBrief {
   title: string;

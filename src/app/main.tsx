@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppProvider } from './context';
-import { Layout } from './layout';
 import '../lib/base.css';
 const work =
   (
@@ -27,8 +26,13 @@ const pub = (name: 'Auth' | 'Info' | 'Demo' | 'NotFound') => async () => {
   return { Component: mod[name] };
 };
 const router = createBrowserRouter([
+  { path: '/', lazy: () => import('../features/gate/Gate') },
+  { path: '/about', lazy: () => import('../features/gate/About') },
   {
-    element: <Layout />,
+    lazy: async () => {
+      const mod = await import('./layout');
+      return { Component: mod.Layout };
+    },
     errorElement: (
       <div className="reading-page">
         <h1>Something interrupted this page.</h1>
@@ -36,7 +40,6 @@ const router = createBrowserRouter([
       </div>
     ),
     children: [
-      { path: '/', lazy: () => import('../features/Landing') },
       { path: '/styleguide', lazy: () => import('../features/Styleguide') },
       { path: '/auth', lazy: pub('Auth') },
       ...['trust', 'fees', 'support', 'learning', 'privacy', 'terms'].map(
