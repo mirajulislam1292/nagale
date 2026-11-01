@@ -62,9 +62,9 @@ export function JobBriefCard({
           <dd className="text-small font-bold text-moss-900 font-variant-numeric tabular-nums">
             {brief.budgetMin ? (
               brief.budgetMax && brief.budgetMax !== brief.budgetMin ? (
-                `৳${brief.budgetMin.toLocaleString('en-IN')} – ৳${brief.budgetMax.toLocaleString('en-IN')}`
+                `৳${brief.budgetMin.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')} – ৳${brief.budgetMax.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`
               ) : (
-                `৳${brief.budgetMin.toLocaleString('en-IN')}`
+                `৳${brief.budgetMin.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`
               )
             ) : (
               <span className="text-moss-400 font-normal">To be agreed</span>

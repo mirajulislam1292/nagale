@@ -235,7 +235,9 @@ export function AuthPage() {
 
                   <p className="text-caption text-moss-500 bg-mist p-2.5 rounded-sm">
                     {c('Demo code: use ', 'ডেমো কোড: ব্যবহার করুন ')}
-                    <strong className="text-moss-900 font-mono">123456</strong>
+                    <strong className="text-moss-900 tabular-nums">
+                      123456
+                    </strong>
                   </p>
 
                   <div className="flex gap-3">
@@ -383,7 +385,9 @@ export function AuthPage() {
 
                   <p className="text-caption text-moss-500 bg-mist p-2.5 rounded-sm">
                     {c('Demo code: use ', 'ডেমো কোড: ব্যবহার করুন ')}
-                    <strong className="text-moss-900 font-mono">123456</strong>
+                    <strong className="text-moss-900 tabular-nums">
+                      123456
+                    </strong>
                   </p>
 
                   <div className="flex gap-3">
@@ -441,7 +445,7 @@ export function AuthPage() {
               {/* Step 5: Provider Selfie Step */}
               {step === 5 && role === 'provider' && (
                 <div className="space-y-4">
-                  <span className="text-caption text-deep-600 font-bold uppercase tracking-wider block">
+                  <span className="text-caption text-deep-600 font-bold normal-case tracking-wider block">
                     Level 1 Provider Check
                   </span>
                   <h3 className="text-lead font-bold text-moss-900">

@@ -32,3 +32,11 @@ Unused translation/test libraries were removed. This prototype uses a small loca
 - Shared app Layout is lazy-loaded to keep marketing navigation out of the Gate bundle.
 - Unknown requests do not fabricate price or category. Sample proposal prices derive from the parsed budget.
 - The latest legacy marketplace screens remain available during the route/feed migration; the new /home and social route map is not yet complete.
+
+## Fix and elevate v3
+
+- Reuse the supplied vector glyph paths directly inside Logo; remove the plate and text outlines rather than inventing a new brand mark.
+- Retain the existing bilingual copy API and add shared formatter keys; adding react-i18next solely for this tier would change the stack and duplicate working translation state.
+- Start polish from the current Gate build and merge current main/premium branch history before editing, preserving deployed fixes.
+- A local photography brief does not match Nusrat solely because of its area; the local match exception is the requested Dhanmondi tutoring brief.
+- Keep Tier 0 focused on shared presentation and data consistency; preserve API enforcement and reserve page restructuring for the named later tiers.

@@ -1179,3 +1179,51 @@ html[lang='bn'] .gate-intro h1 {
     line-height: 16px;
   }
 }
+
+/* Shared control foundation, v3. */
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: #0f7a5c;
+}
+input[type='range'] {
+  appearance: none;
+  height: 8px;
+  border-radius: 6px;
+  background: #b4c4bd;
+  accent-color: #3fd3a2;
+}
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3fd3a2;
+  border: 2px solid #0c2a24;
+  cursor: pointer;
+}
+input[type='range']::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3fd3a2;
+  border: 2px solid #0c2a24;
+}
+button svg,
+a svg {
+  stroke-width: 1.5;
+}
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 32px;
+  margin-inline: auto;
+}
+@media (max-width: 767px) {
+  .about-container {
+    padding-inline: 16px;
+  }
+}
+
+.delivery-watermark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='120'%3E%3Ctext x='20' y='75' transform='rotate(-15 130 60)' fill='%230c2a24' opacity='.12' font-family='sans-serif' font-size='24'%3ENAGALE PREVIEW%3C/text%3E%3C/svg%3E");
+}

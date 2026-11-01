@@ -54,13 +54,13 @@ export function Rating({
 }) {
   return (
     <div className="inline-flex items-center gap-1.5 text-small select-none">
-      <Star size={15} className="fill-amber-400 text-amber-400 shrink-0" />
+      <Star size={15} className="fill-moss-900 text-moss-900 shrink-0" />
       <span className="font-bold text-moss-900 font-variant-numeric tabular-nums">
         {rating.toFixed(1)}
       </span>
-      {!compact && <span className="text-moss-400">/ 5</span>}
+      {!compact && <span className="text-moss-500">/ 5</span>}
       {reviewsCount !== undefined && (
-        <span className="text-moss-500 font-normal">({reviewsCount})</span>
+        <span className="text-moss-500 font-normal">· {reviewsCount}</span>
       )}
     </div>
   );

@@ -1,3 +1,9 @@
+import {
+  CLIENT_ID,
+  isActiveOrder,
+  participantOrders,
+} from '../../mocks/selectors';
+import { proposalCount } from '../../lib/format';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -24,7 +30,10 @@ export function ClientDashboard() {
   const c = useCopy();
   const nav = useNavigate();
   const { bn } = useApp();
-  const { gigs, orders, messages, providers } = useMarket();
+  const snapshot = useMarket();
+  const { messages, providers } = snapshot;
+  const orders = participantOrders(snapshot, 'client');
+  const gigs = snapshot.gigs.filter((g) => g.clientId === CLIENT_ID);
 
   const [prompt, setPrompt] = useState('');
 
@@ -60,7 +69,7 @@ export function ClientDashboard() {
           </div>
           <Button
             size="md"
-            variant="primary"
+            variant="strong"
             onClick={() => nav('/client/new')}
             icon={<Plus size={16} />}
           >
@@ -132,7 +141,7 @@ export function ClientDashboard() {
           />
           <StatTile
             label={c('Held in escrow', 'এসক্রোতে সুরক্ষিত')}
-            value={`৳${heldAmount.toLocaleString('en-IN')}`}
+            value={`৳${heldAmount.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`}
             sublabel={c(
               'Protected until your final approval',
               'আপনার অনুমোদন না হওয়া পর্যন্ত সুরক্ষিত',
@@ -180,12 +189,12 @@ export function ClientDashboard() {
                 {c('Active orders', 'চলমান অর্ডারসমূহ')}
               </h2>
               <span className="text-caption text-moss-500 font-variant-numeric tabular-nums">
-                {orders.length} {c('orders', 'টি অর্ডার')}
+                {orders.filter(isActiveOrder).length} {c('orders', 'টি অর্ডার')}
               </span>
             </div>
 
             <div className="space-y-3">
-              {orders.map((o) => {
+              {orders.filter(isActiveOrder).map((o) => {
                 const provider = providers.find((p) => p.id === o.providerId);
                 return (
                   <Link
@@ -195,7 +204,7 @@ export function ClientDashboard() {
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
                       <div>
-                        <span className="text-caption font-mono text-moss-400 mr-2">
+                        <span className="text-caption tabular-nums text-moss-500 mr-2">
                           {o.id}
                         </span>
                         <strong className="text-small font-bold text-moss-900 hover:text-deep-600">
@@ -204,7 +213,12 @@ export function ClientDashboard() {
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-small font-bold text-moss-900 font-variant-numeric tabular-nums">
-                          ৳{o.price.toLocaleString('en-IN')}
+                          ৳
+                          {o.price.toLocaleString(
+                            document.documentElement.lang === 'bn'
+                              ? 'bn-BD'
+                              : 'en-BD',
+                          )}
                         </span>
                         <OrderStatusBadge
                           status={o.status}
@@ -237,14 +251,22 @@ export function ClientDashboard() {
                 Total held in escrow
               </div>
               <div className="text-h2 font-bold text-white font-variant-numeric tabular-nums mb-4">
-                ৳{heldAmount.toLocaleString('en-IN')}
+                ৳
+                {heldAmount.toLocaleString(
+                  document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                )}
               </div>
 
               <div className="space-y-2.5 pt-3 border-t border-moss-700/80 text-caption text-moss-300">
                 <div className="flex justify-between">
                   <span>Awaiting delivery:</span>
                   <span className="text-white font-bold">
-                    ৳{heldAmount.toLocaleString('en-IN')}
+                    ৳
+                    {heldAmount.toLocaleString(
+                      document.documentElement.lang === 'bn'
+                        ? 'bn-BD'
+                        : 'en-BD',
+                    )}
                   </span>
                 </div>
                 <div className="flex justify-between">
@@ -280,11 +302,7 @@ export function ClientDashboard() {
             <div className="space-y-3">
               {gigs.map((g) => {
                 // Correct plural check
-                const proposalLabel = bn
-                  ? `${g.proposals}টি প্রস্তাব`
-                  : g.proposals === 1
-                    ? '1 proposal'
-                    : `${g.proposals} proposals`;
+                const proposalLabel = proposalCount(g.proposals, bn);
 
                 return (
                   <Link
@@ -300,7 +318,12 @@ export function ClientDashboard() {
                         {g.type === 'local' ? <LocalBadge /> : <DigitalBadge />}
                       </div>
                       <span className="text-small font-bold text-moss-900 font-variant-numeric tabular-nums">
-                        ৳{g.budget.toLocaleString('en-IN')}
+                        ৳
+                        {g.budget.toLocaleString(
+                          document.documentElement.lang === 'bn'
+                            ? 'bn-BD'
+                            : 'en-BD',
+                        )}
                       </span>
                     </div>
 

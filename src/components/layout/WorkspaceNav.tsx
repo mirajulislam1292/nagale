@@ -71,13 +71,13 @@ export function AppBar() {
         </Link>
         <span className="text-small font-bold text-moss-900 truncate">
           {role === 'provider'
-            ? c('Provider workspace', 'সেবাদাতার কাজ')
+            ? c('Provider', 'সেবাদাতার কাজ')
             : role === 'admin'
-              ? c('Admin workspace', 'অ্যাডমিন ড্যাশবোর্ড')
-              : c('Client workspace', 'ক্লায়েন্টের কাজ')}
+              ? c('Admin', 'অ্যাডমিন ড্যাশবোর্ড')
+              : c('Client', 'ক্লায়েন্টের কাজ')}
         </span>
         <span className="hidden sm:inline-block text-caption px-2 py-0.5 rounded-sm bg-moss-100 text-moss-600 font-medium">
-          {c('Demo mode', 'ডেমো মোড')}
+          {c('Demo', 'ডেমো')}
         </span>
       </div>
 
@@ -98,6 +98,7 @@ export function AppBar() {
           onClick={() => setLite(!lite)}
           title={c('Toggle Lite mode', 'লাইট মোড পরিবর্তন')}
           aria-label="Toggle lite mode"
+          aria-pressed={lite}
           className={`p-1.5 rounded-sm min-h-[36px] flex items-center gap-1.5 text-caption font-medium ${
             lite
               ? 'bg-mint-100 text-deep-700'
@@ -112,6 +113,7 @@ export function AppBar() {
         <div className="relative">
           <button
             type="button"
+            aria-label={c('Account menu', 'অ্যাকাউন্ট মেনু')}
             onClick={() => setRoleMenuOpen(!roleMenuOpen)}
             className="flex items-center gap-2 p-1.5 rounded-sm hover:bg-moss-100 transition-colors"
           >

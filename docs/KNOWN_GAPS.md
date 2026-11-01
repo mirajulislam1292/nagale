@@ -1,14 +1,10 @@
-# Known gaps
+# Known gaps — v3
 
-The current build is a functional visual prototype, not a completed implementation of every master-spec requirement.
+This is an intermediate foundation release, not completion of the v3 brief.
 
-- No real authentication, AI, KYC, upload handling, payments, payout requests, CMS, messaging backend or notifications. No real identity or payment information is collected.
-- English complete; Bangla partial. Translation namespaces, parity scripts and full native review remain.
-- Admin routes currently share a sample flag-review queue; dedicated verification/users/dispute resolution queues, sanctions and appeals remain.
-- Provider profile editing, file attachments/delivery, structured review submission, exact matching and full seed-data volume remain.
-- Demo mode is always enabled in this prototype. It must not be enabled for real customer data. There is no production authorisation layer.
-- New data resets on reload; only language and brief draft are persisted. Message drafts and a universal unsaved-changes guard remain.
-- /styleguide, generated handoff checks, exact design-token audit, full logo/favicon set review, OG image, service worker and analytics interface remain.
-- Dependency advisories remain from the pinned dependency versions; audit and remediation are required before real-user launch.
-- Lighthouse scores and full screen-reader verification have not been measured. Browser findings and follow-up fixes are recorded in QA_REPORT, without claiming unrun checks.
-- The functional prototype source and brand assets are published to the private GitHub repository. The remaining items above are not represented as complete.
+- Tier 1: Gate loop/role switch and About/Auth/reading-page redesign remain.
+- Tier 2: social shell and money-path presentation remain. Completed-order escrow presentation still needs a role-aware rewrite even though canonical held/released selectors are correct. Proposal cards currently use secondary actions; selected-card Mint and comparison interactions remain.
+- Tier 3: full data-driven profile reviews, message threads, admin state/notes and Demo dock remain. Some existing English explanatory copy remains in Bangla screens until those page-level tiers.
+- Demo state is browser-only; no real identity, payments or backend processing.
+- Final Lighthouse and final all-key-route accessibility gate are deferred until the final tier, as requested.
+- Terms and Privacy require legal review before production transactions.

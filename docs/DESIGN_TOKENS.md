@@ -75,3 +75,7 @@ Fonts:
 ## Final master override, 1 November 2026
 
 Gate display is 64/68 EN and 56/76 BN; mobile 40/44 EN and 36/52 BN, Latin tracking -0.03em and BN zero. This supersedes earlier display specimens. Gate controls have 44px minimum targets; Continue is 52px. Gate and About use the canonical Mint/Moss palette, two elevation levels and the existing supplied logo.
+
+## Fix and elevate v3 foundation
+
+Shared buttons use radius 6px for 36/44/52px heights and 8px icon gaps. OTP boxes are 48×56px, with 28px tabular digits. Logo uses supplied vector glyph paths with currentColor on a transparent SVG and real text; header marks are 32px, footer marks 24px. Controls use Deep Mint checks, Lucide select chevrons, a 24px Mint range thumb and Moss rating stars. Public header/sections/footer share max width 1200px and 16/24/32px gutters. Gate/About display restructuring remains Tier 1.

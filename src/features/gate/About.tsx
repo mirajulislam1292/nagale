@@ -1,3 +1,4 @@
+import { Footer } from '../../components/layout/Footer';
 // BACKEND: Create a partner enquiry ticket; this prototype only acknowledges the local form.
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -6,7 +7,7 @@ import { aboutContent } from '../../content/about';
 import { useApp, useMarket, useMoney } from '../../app/context';
 import { Logo } from '../../components/ui/Logo';
 import { ArcsPattern } from '../../components/ui/ArcsPattern';
-import { BriefDemo, GateLinks } from './BriefDemo';
+import { BriefDemo } from './BriefDemo';
 export function Component() {
   const { bn, setBn } = useApp();
   const [sent, setSent] = useState(false);
@@ -35,7 +36,7 @@ export function Component() {
               {bn ? 'EN' : 'বাংলা'}
             </button>
             <Link to="/">{c.login}</Link>
-            <Link className="gate-primary" to="/auth?mode=signup">
+            <Link className="gate-secondary" to="/auth?mode=signup">
               {c.start}
             </Link>
           </nav>
@@ -223,17 +224,7 @@ export function Component() {
           </form>
         </section>
       </main>
-      <footer className="about-footer">
-        <div className="about-container">
-          <Link to="/">
-            <Logo size="mark" accessibleName="Nagale" />
-          </Link>
-          <nav>
-            <GateLinks />
-          </nav>
-          <p>{c.footer}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

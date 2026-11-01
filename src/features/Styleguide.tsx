@@ -1,3 +1,10 @@
+import { demoDate } from '../mocks/seed';
+import {
+  formatDate,
+  formatBDT,
+  statusLabel,
+  proposalCount,
+} from '../lib/format';
 import { tokens } from '../lib/tokens';
 import { useState } from 'react';
 import { Lock, Search, ShieldAlert } from 'lucide-react';
@@ -103,12 +110,29 @@ export function Component() {
         {/* Header and Controls */}
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-moss-200 mb-12 gap-4">
           <div>
-            <span className="text-caption font-mono uppercase tracking-widest text-deep-600 font-bold">
+            <span className="text-caption tabular-nums normal-case tracking-widest text-deep-600 font-bold">
               Design System Specimen
             </span>
             <h1 className="text-h2 font-bold text-moss-900 tracking-tight">
               {c('Nagale Component Library', 'নাগালে কম্পোনেন্ট লাইব্রেরি')}
             </h1>
+            <section
+              aria-label="Shared foundation"
+              className="my-8 flex flex-wrap gap-6 items-center rounded-md border border-moss-200 p-6"
+            >
+              <Logo />
+              <Logo glyphOnly size="mark" />
+              <Logo markSize={24} />
+              <span>
+                {formatBDT(1500)} · {formatDate(demoDate)} ·{' '}
+                {statusLabel('details_unlocked')} · {proposalCount(1)}
+              </span>
+              <span lang="bn">
+                {formatBDT(1500, true)} · {formatDate(demoDate, true)} ·{' '}
+                {statusLabel('details_unlocked', true)} ·{' '}
+                {proposalCount(3, true)}
+              </span>
+            </section>
             <p className="text-body text-moss-600 mt-1">
               Every token, primitive, control, and composite widget in English
               and বাংলা.

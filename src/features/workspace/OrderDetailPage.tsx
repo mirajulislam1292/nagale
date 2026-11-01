@@ -32,7 +32,7 @@ export function OrderDetailPage() {
   const isProvider = pathname.startsWith('/provider');
 
   const { orders, providers, feeRate } = useMarket();
-  const { role, notify } = useApp();
+  const { role, notify, bn } = useApp();
   const c = useCopy();
   const nav = useNavigate();
 
@@ -101,7 +101,7 @@ export function OrderDetailPage() {
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-moss-100">
             <div>
               <div className="flex items-center gap-3 mb-2 flex-wrap">
-                <span className="text-caption font-mono uppercase text-moss-500 font-bold bg-mist px-2 py-0.5 rounded-sm">
+                <span className="text-caption tabular-nums normal-case text-moss-500 font-bold bg-mist px-2 py-0.5 rounded-sm">
                   Order {order.id}
                 </span>
                 <OrderStatusBadge
@@ -120,11 +120,14 @@ export function OrderDetailPage() {
                 Agreed Order Price
               </span>
               <span className="text-h2 font-bold text-moss-900 font-variant-numeric tabular-nums">
-                ৳{order.price.toLocaleString('en-IN')}
+                ৳
+                {order.price.toLocaleString(
+                  document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                )}
               </span>
               <span className="text-caption text-deep-700 block">
                 {isProvider
-                  ? `Net payout: ৳${fee.net.toLocaleString('en-IN')}`
+                  ? `Net payout: ৳${fee.net.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`
                   : 'Protected in Escrow'}
               </span>
             </div>
@@ -160,10 +163,10 @@ export function OrderDetailPage() {
 
         {/* Six-step OrderTimeline */}
         <div className="bg-white border border-moss-200 rounded-md p-6 mb-8 shadow-e1">
-          <h2 className="text-small font-bold text-moss-500 uppercase tracking-wider mb-2">
+          <h2 className="text-small font-bold text-moss-500 normal-case tracking-wider mb-2">
             Order lifecycle timeline
           </h2>
-          <OrderTimeline status={order.status} />
+          <OrderTimeline status={order.status} isBn={bn} />
         </div>
 
         {/* Main Grid: Left Next Step / Details / Preview / Activity, Right Escrow Summary */}
@@ -174,7 +177,7 @@ export function OrderDetailPage() {
               variant="flat"
               className="p-6 bg-mist/50 border border-moss-200"
             >
-              <span className="text-caption uppercase tracking-wider text-deep-600 font-bold block mb-1">
+              <span className="text-caption normal-case tracking-wider text-deep-600 font-bold block mb-1">
                 Current State Action
               </span>
 
@@ -213,7 +216,12 @@ export function OrderDetailPage() {
                       onClick={() => setFundingModalOpen(true)}
                       icon={<Lock size={16} />}
                     >
-                      Fund escrow · ৳{order.price.toLocaleString('en-IN')}
+                      Fund escrow · ৳
+                      {order.price.toLocaleString(
+                        document.documentElement.lang === 'bn'
+                          ? 'bn-BD'
+                          : 'en-BD',
+                      )}
                     </Button>
                   )}
                 </div>
@@ -231,7 +239,11 @@ export function OrderDetailPage() {
                     {isProvider
                       ? 'Payment is verified and held securely. Prepare your files and submit a draft note when ready for client review.'
                       : 'Your payment of ৳' +
-                        order.price.toLocaleString('en-IN') +
+                        order.price.toLocaleString(
+                          document.documentElement.lang === 'bn'
+                            ? 'bn-BD'
+                            : 'en-BD',
+                        ) +
                         ' is safely held. The provider is preparing your deliverables.'}
                   </p>
 
@@ -306,8 +318,12 @@ export function OrderDetailPage() {
                   </h3>
                   <p className="text-small text-moss-600 mb-4">
                     The delivery was approved and ৳
-                    {fee.net.toLocaleString('en-IN')} net was released to the
-                    provider. Direct files are unlocked.
+                    {fee.net.toLocaleString(
+                      document.documentElement.lang === 'bn'
+                        ? 'bn-BD'
+                        : 'en-BD',
+                    )}{' '}
+                    net was released to the provider. Direct files are unlocked.
                   </p>
                   <Button
                     variant="secondary"
@@ -336,7 +352,7 @@ export function OrderDetailPage() {
                   {order.privateDetails ? (
                     <Unlock size={18} className="text-deep-600" />
                   ) : (
-                    <Lock size={18} className="text-moss-400" />
+                    <Lock size={18} className="text-moss-500" />
                   )}
                   <h3 className="text-lead font-bold text-moss-900">
                     Private project details & workspace notes
@@ -365,7 +381,7 @@ export function OrderDetailPage() {
                 </div>
               ) : (
                 <div className="p-8 text-center bg-mist/50 rounded-sm border border-dashed border-moss-200">
-                  <Lock size={28} className="mx-auto text-moss-400 mb-2" />
+                  <Lock size={28} className="mx-auto text-moss-500 mb-2" />
                   <p className="text-small font-medium text-moss-700">
                     Exact addresses, files and private project credentials
                     remain locked.
@@ -390,7 +406,7 @@ export function OrderDetailPage() {
                     <p className="text-small font-medium text-moss-900">
                       {ev.text}
                     </p>
-                    <span className="text-caption text-moss-400 font-variant-numeric tabular-nums">
+                    <span className="text-caption text-moss-500 font-variant-numeric tabular-nums">
                       {new Date(ev.at).toLocaleString('en-GB', {
                         timeZone: 'Asia/Dhaka',
                         dateStyle: 'medium',
@@ -405,7 +421,7 @@ export function OrderDetailPage() {
 
           {/* Right Column: Escrow Summary Panel & Safeguards */}
           <div className="lg:col-span-4 space-y-6">
-            <EscrowSummary amount={order.price} feeRate={feeRate} />
+            <EscrowSummary amount={order.price} feeRate={feeRate} isBn={bn} />
 
             <Card variant="flat" className="p-5 text-caption space-y-3">
               <div className="flex items-center gap-2 font-bold text-moss-900 text-small">
@@ -436,8 +452,13 @@ export function OrderDetailPage() {
           <div className="space-y-4">
             <p className="text-small text-moss-700">
               Select your payment method to deposit{' '}
-              <strong>৳{order.price.toLocaleString('en-IN')}</strong> into
-              escrow. Payment is held securely until you approve delivery.
+              <strong>
+                ৳
+                {order.price.toLocaleString(
+                  document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                )}
+              </strong>{' '}
+              into escrow. Payment is held securely until you approve delivery.
             </p>
 
             <div className="space-y-2">
@@ -527,13 +548,27 @@ export function OrderDetailPage() {
           <div className="space-y-4">
             <p className="text-small text-moss-700">
               Confirming approval will complete the order and release{' '}
-              <strong>৳{fee.net.toLocaleString('en-IN')}</strong> to{' '}
-              {counterpart.name}. Direct download files will unlock.
+              <strong>
+                ৳
+                {fee.net.toLocaleString(
+                  document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                )}
+              </strong>{' '}
+              to {counterpart.name}. Direct download files will unlock.
             </p>
             <div className="p-3 bg-mist rounded-sm text-caption text-moss-600">
-              Order: ৳{order.price.toLocaleString('en-IN')} · Fee: ৳
-              {fee.fee.toLocaleString('en-IN')} (10%) · Net payout: ৳
-              {fee.net.toLocaleString('en-IN')}
+              Order: ৳
+              {order.price.toLocaleString(
+                document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+              )}{' '}
+              · Fee: ৳
+              {fee.fee.toLocaleString(
+                document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+              )}{' '}
+              (10%) · Net payout: ৳
+              {fee.net.toLocaleString(
+                document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+              )}
             </div>
             <div className="flex justify-end gap-3 pt-3 border-t border-moss-100">
               <Button

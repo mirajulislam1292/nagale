@@ -1,3 +1,4 @@
+import { disputeSeeds } from '../../mocks/seed';
 import { useState } from 'react';
 import { Scale, ShieldCheck, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { LayoutContainer } from '../../components/layout/LayoutContainer';
@@ -15,9 +16,7 @@ export function AdminDisputes() {
   const money = useMoney();
 
   // Pick or synthesize dispute orders
-  const disputeOrders = orders.filter(
-    (o) => o.status === 'disputed' || o.id === 'ord-1042',
-  );
+  const disputeOrders = orders.filter((o) => o.status === 'disputed');
   const activeList =
     disputeOrders.length > 0 ? disputeOrders : orders.slice(0, 2);
 
@@ -95,7 +94,7 @@ export function AdminDisputes() {
           {/* Left Panel: Dispute Cases List (5 cols) */}
           <div className="lg:col-span-5 bg-white rounded-md border border-moss-200 shadow-e1 overflow-hidden">
             <div className="p-3.5 bg-mist border-b border-moss-200 flex justify-between items-center text-caption font-bold text-moss-700">
-              <span>{c('DISPUTED ORDERS', 'বিরোধপূর্ণ অর্ডারসমূহ')}</span>
+              <span>{c('Disputed orders', 'বিরোধপূর্ণ অর্ডারসমূহ')}</span>
               <span className="font-variant-numeric tabular-nums">
                 {activeList.length}
               </span>
@@ -153,7 +152,7 @@ export function AdminDisputes() {
             {selectedOrder ? (
               <Card variant="flat" className="space-y-6">
                 <div>
-                  <span className="text-caption font-mono text-moss-400 uppercase tracking-wider block mb-1">
+                  <span className="text-caption tabular-nums text-moss-400 normal-case tracking-wider block mb-1">
                     {selectedOrder.id}
                   </span>
                   <h2 className="text-h4 font-bold text-moss-900">
@@ -163,7 +162,7 @@ export function AdminDisputes() {
 
                 {/* AI Summary Panel */}
                 <div className="bg-moss-900 text-white p-4 rounded-sm text-small space-y-1.5 shadow-e1">
-                  <div className="flex items-center gap-2 text-mint-300 font-bold text-caption uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-mint-300 font-bold text-caption normal-case tracking-wider">
                     <ShieldCheck size={14} />
                     <span>
                       {c(
@@ -173,32 +172,33 @@ export function AdminDisputes() {
                     </span>
                   </div>
                   <p className="text-moss-100 text-caption leading-relaxed">
-                    {c(
-                      'Client claims the logo export files were delivered 48 hours late without requested SVG vector format. Provider submitted valid high-res PNG proofs and responded within 4 hours. Evidence suggests partial delivery with technical omissions.',
-                      'ক্লায়েন্ট অভিযোগ করেছেন এসভিজি ভেক্টর ফাইল ছাড়াই ৪৮ ঘণ্টা দেরিতে ফাইল পাঠানো হয়েছে। প্রোভাইডার উচ্চ রেজোলিউশনের পিএনজি ফাইল প্রদান করেছেন এবং ৪ ঘণ্টার মধ্যে প্রতিক্রিয়া জানিয়েছেন। পর্যালোচনায় আংশিক সরবরাহ ও প্রযুক্তিগত ত্রুটি দৃশ্যমান।',
-                    )}
+                    {
+                      disputeSeeds.find((d) => d.orderId === selectedOrder?.id)
+                        ?.narrative
+                    }
                   </p>
                 </div>
 
                 {/* Side-by-side arguments */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-small">
                   <div className="p-3.5 bg-mist rounded-sm border border-moss-200">
-                    <span className="text-caption font-bold text-moss-500 uppercase tracking-wider block mb-1">
+                    <span className="text-caption font-bold text-moss-500 normal-case tracking-wider block mb-1">
                       {c(
-                        'Client Position (Mahim Rahman)',
+                        `Client (${selectedOrder?.clientName})`,
                         'ক্লায়েন্টের বক্তব্য (মাহিম রহমান)',
                       )}
                     </span>
                     <p className="text-moss-700 text-caption">
-                      {c(
-                        '"We agreed on vector SVG source files in the brief. Only raster PNGs were provided and the designer stopped answering my vector requests."',
-                        '"চুক্তিতে এসভিজি ভেক্টর সোর্স ফাইল দেওয়ার কথা ছিল। কিন্তু শুধু পিএনজি দেওয়া হয়েছে এবং পরবর্তীতে মেসেজের কোনো সন্তোষজনক উত্তর মেলেনি।"',
-                      )}
+                      {
+                        disputeSeeds.find(
+                          (d) => d.orderId === selectedOrder?.id,
+                        )?.narrative
+                      }
                     </p>
                   </div>
 
                   <div className="p-3.5 bg-mist rounded-sm border border-moss-200">
-                    <span className="text-caption font-bold text-moss-500 uppercase tracking-wider block mb-1">
+                    <span className="text-caption font-bold text-moss-500 normal-case tracking-wider block mb-1">
                       {c(
                         `Provider Position (${provider?.name})`,
                         `প্রোভাইডারের বক্তব্য (${provider?.name})`,
@@ -206,8 +206,8 @@ export function AdminDisputes() {
                     </span>
                     <p className="text-moss-700 text-caption">
                       {c(
-                        '"I spent 6 hours producing 3 distinct concepts that were approved in chat. The SVG export encountered software errors, which I offered to send via email."',
-                        '"আমি চ্যাটে অনুমোদিত ৩টি পৃথক কনসেপ্ট তৈরিতে ৬ ঘণ্টা ব্যয় করেছি। এসভিজি ফাইলে প্রযুক্তিগত সমস্যা হয়েছিল, যা ইমেইলে পাঠাতে চেয়েছিলাম।"',
+                        'Submitted files are available in the order history.',
+                        'জমা দেওয়া ফাইল অর্ডারের ইতিহাসে আছে।',
                       )}
                     </p>
                   </div>
@@ -218,7 +218,7 @@ export function AdminDisputes() {
                   onSubmit={handleRecordDecision}
                   className="space-y-4 pt-4 border-t border-moss-100"
                 >
-                  <h3 className="text-small font-bold text-moss-900 uppercase tracking-wider">
+                  <h3 className="text-small font-bold text-moss-900 normal-case tracking-wider">
                     {c('Apportion Escrow Funds', 'এসক্রো অর্থ বণ্টন')}
                   </h3>
 

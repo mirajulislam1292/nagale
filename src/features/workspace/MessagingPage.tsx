@@ -148,7 +148,7 @@ export function MessagingPage() {
           {/* Left Pane: Threads List (340px / 4 cols) */}
           <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-moss-200 flex flex-col justify-between bg-mist/30">
             <div className="p-3 border-b border-moss-100">
-              <span className="text-caption font-bold text-moss-500 uppercase tracking-wider block mb-2 px-2">
+              <span className="text-caption font-bold text-moss-500 normal-case tracking-wider block mb-2 px-2">
                 Order Conversations
               </span>
               <div className="space-y-1">
@@ -247,7 +247,10 @@ export function MessagingPage() {
               </div>
 
               {messages.map((m) => {
-                const isOwn = m.sender === 'you';
+                const isOwn = m.senderId
+                  ? m.senderId ===
+                    (role === 'provider' ? 'nusrat' : 'usr-client-1')
+                  : m.sender === 'you';
                 return (
                   <div
                     key={m.id}

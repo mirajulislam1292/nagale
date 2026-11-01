@@ -1,3 +1,5 @@
+import { paymentAccounts } from '../../mocks/seed';
+import { participantOrders } from '../../mocks/selectors';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -21,9 +23,17 @@ export function WalletView() {
   const { pathname } = useLocation();
   const isProvider = pathname.startsWith('/provider');
 
-  const { orders, feeRate } = useMarket();
+  const snapshot = useMarket();
+  const { feeRate } = snapshot;
+  const orders = participantOrders(
+    snapshot,
+    isProvider ? 'provider' : 'client',
+  );
   const { notify } = useApp();
   const c = useCopy();
+  const account = paymentAccounts[
+    isProvider ? 'nusrat' : 'usr-client-1'
+  ][0] ?? { type: 'bKash', last4: '••••' };
 
   // Client funding modal
   const [fundingModalOpen, setFundingModalOpen] = useState(false);
@@ -71,9 +81,7 @@ export function WalletView() {
 
   const handleRequestPayout = () => {
     setPayoutModalOpen(false);
-    notify(
-      'Payout request sent to bKash •••• 4521. Processing takes up to 2 hours.',
-    );
+    notify(`Payout request sent to ${account.type} •••• ${account.last4}.`);
   };
 
   const handleAddPaymentMethod = () => {
@@ -137,13 +145,13 @@ export function WalletView() {
             <>
               <StatTile
                 label="Available for payout"
-                value={`৳${totalCompletedNet.toLocaleString('en-IN')}`}
+                value={`৳${totalCompletedNet.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`}
                 sublabel="Ready for instant withdrawal"
                 icon={<Wallet size={18} />}
               />
               <StatTile
                 label="In active escrow"
-                value={`৳${heldOrders.reduce((s, o) => s + feeFor(o.price, feeRate).net, 0).toLocaleString('en-IN')}`}
+                value={`৳${heldOrders.reduce((s, o) => s + feeFor(o.price, feeRate).net, 0).toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`}
                 sublabel="Held safely while work is verified"
                 icon={<Lock size={18} />}
               />
@@ -158,13 +166,13 @@ export function WalletView() {
             <>
               <StatTile
                 label="Payment held in escrow"
-                value={`৳${totalHeld.toLocaleString('en-IN')}`}
+                value={`৳${totalHeld.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`}
                 sublabel={`${heldOrders.length} active orders protected`}
                 icon={<Lock size={18} />}
               />
               <StatTile
                 label="Completed releases"
-                value={`৳${totalCompletedGross.toLocaleString('en-IN')}`}
+                value={`৳${totalCompletedGross.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`}
                 sublabel={`${completedOrders.length} approved handovers`}
                 icon={<CheckCircle2 size={18} />}
               />
@@ -189,7 +197,7 @@ export function WalletView() {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-small">
                 <thead>
-                  <tr className="border-b border-moss-200 text-caption text-moss-500 uppercase tracking-wider">
+                  <tr className="border-b border-moss-200 text-caption text-moss-500 normal-case tracking-wider">
                     <th className="py-3 pr-4 font-bold">Order / Description</th>
                     <th className="py-3 px-3 font-bold">Status</th>
                     <th className="py-3 pl-4 text-right font-bold">
@@ -214,7 +222,7 @@ export function WalletView() {
                           >
                             {o.title}
                           </Link>
-                          <span className="text-caption font-mono text-moss-400">
+                          <span className="text-caption tabular-nums text-moss-500">
                             {o.id}
                           </span>
                         </td>
@@ -225,7 +233,12 @@ export function WalletView() {
                           />
                         </td>
                         <td className="py-3.5 pl-4 text-right font-bold text-moss-900 font-variant-numeric tabular-nums">
-                          ৳{amountToShow.toLocaleString('en-IN')}
+                          ৳
+                          {amountToShow.toLocaleString(
+                            document.documentElement.lang === 'bn'
+                              ? 'bn-BD'
+                              : 'en-BD',
+                          )}
                         </td>
                       </tr>
                     );
@@ -263,8 +276,8 @@ export function WalletView() {
                       <strong className="text-small font-bold text-moss-900 block">
                         bKash
                       </strong>
-                      <span className="text-caption text-moss-500 font-mono">
-                        •••• 4521
+                      <span className="text-caption text-moss-500 tabular-nums">
+                        •••• {account.last4}
                       </span>
                     </div>
                   </div>
@@ -282,7 +295,7 @@ export function WalletView() {
                       <strong className="text-small font-bold text-moss-900 block">
                         Nagad
                       </strong>
-                      <span className="text-caption text-moss-500 font-mono">
+                      <span className="text-caption text-moss-500 tabular-nums">
                         •••• 8912
                       </span>
                     </div>
@@ -300,7 +313,7 @@ export function WalletView() {
                         <strong className="text-small font-bold text-moss-900 block">
                           Bank Account
                         </strong>
-                        <span className="text-caption text-deep-700 font-mono">
+                        <span className="text-caption text-deep-700 tabular-nums">
                           •••• 7741
                         </span>
                       </div>
@@ -389,7 +402,10 @@ export function WalletView() {
                   Cancel
                 </Button>
                 <Button variant="primary" onClick={handleSimulateFunding}>
-                  Deposit ৳{Number(fundAmount).toLocaleString('en-IN')}
+                  Deposit ৳
+                  {Number(fundAmount).toLocaleString(
+                    document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                  )}
                 </Button>
               </div>
             </div>
@@ -421,7 +437,9 @@ export function WalletView() {
               </label>
               <div className="p-3 border border-moss-200 rounded-sm bg-mist text-small font-medium text-moss-900 flex justify-between">
                 <span>bKash Wallet</span>
-                <span className="font-mono text-moss-500">•••• 4521</span>
+                <span className="tabular-nums text-moss-500">
+                  •••• {account.last4}
+                </span>
               </div>
             </div>
 

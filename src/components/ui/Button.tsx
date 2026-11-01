@@ -33,8 +33,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) {
     const sizeClasses = {
       sm: 'min-h-[36px] h-9 px-3 text-small rounded-sm gap-2',
-      md: 'min-h-[44px] h-11 px-4 text-small font-medium rounded-sm gap-2.5',
-      lg: 'min-h-[52px] h-[52px] px-6 text-body font-medium rounded-md gap-3',
+      md: 'min-h-[44px] h-11 px-4 text-small font-medium rounded-sm gap-2',
+      lg: 'min-h-[52px] h-[52px] px-6 text-body font-medium rounded-sm gap-2',
     }[size];
 
     const variantClasses = {
@@ -96,7 +96,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     const sizeClasses = {
       sm: 'w-9 h-9 min-h-[36px] rounded-sm',
       md: 'w-11 h-11 min-h-[44px] rounded-sm',
-      lg: 'w-[52px] h-[52px] min-h-[52px] rounded-md',
+      lg: 'w-[52px] h-[52px] min-h-[52px] rounded-sm',
     }[size];
 
     const variantClasses = {

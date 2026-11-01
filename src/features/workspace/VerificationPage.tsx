@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ShieldCheck, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Clock } from 'lucide-react';
 import { LayoutContainer } from '../../components/layout/LayoutContainer';
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
@@ -85,7 +85,7 @@ export function VerificationPage() {
           <Card variant="flat">
             <div className="flex items-start justify-between gap-4 mb-3">
               <div className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-amber-100 text-amber-800 font-bold text-small flex items-center justify-center shrink-0">
+                <span className="w-8 h-8 rounded-full bg-amber-100 text-deep-700 font-bold text-small flex items-center justify-center shrink-0">
                   02
                 </span>
                 <div>
@@ -106,24 +106,24 @@ export function VerificationPage() {
               <Badge tone="warning">
                 <span className="flex items-center gap-1">
                   <Clock size={12} />
-                  {c('Under review', 'পর্যালোচনাধীন')}
+                  {c('Approved', 'অনুমোদিত')}
                 </span>
               </Badge>
             </div>
 
-            <div className="bg-amber-50/60 border border-amber-200 rounded-sm p-4 text-small text-amber-900 flex items-start gap-3 mt-4">
-              <AlertCircle
+            <div className="bg-deep-50 border border-deep-100 rounded-sm p-4 text-small text-deep-700 flex items-start gap-3 mt-4">
+              <CheckCircle2
                 size={18}
-                className="text-amber-700 shrink-0 mt-0.5"
+                className="text-deep-700 shrink-0 mt-0.5"
               />
               <div>
                 <strong className="block font-medium">
-                  {c('Review in progress', 'পর্যালোচনা চলছে')}
+                  {c('Identity approved', 'পরিচয় অনুমোদিত')}
                 </strong>
-                <p className="text-amber-800 text-caption mt-0.5">
+                <p className="text-deep-700 text-caption mt-0.5">
                   {c(
-                    'Your documents are being checked against national records. We will notify you within 24 hours. No further action is required.',
-                    'আপনার নথি যাচাই করা হচ্ছে। ২৪ ঘণ্টার মধ্যে আপনাকে নোটিফিকেশন পাঠানো হবে। এই মুহূর্তে অন্য কোনো পদক্ষেপের প্রয়োজন নেই।',
+                    'Your identity check is approved.',
+                    'আপনার পরিচয় যাচাই অনুমোদিত।',
                   )}
                 </p>
               </div>
@@ -232,7 +232,7 @@ export function VerificationPage() {
               </strong>
               <p>
                 {c(
-                  'Your NID number and selfie are never displayed back to you or anyone else on Nagale. Only your verified tier status appears on your public profile. Files are held in encrypted cold storage and audited under strict data privacy regulations.',
+                  'Your NID number and selfie are never displayed back to you or anyone else on Nagale. Only your verified tier status appears on your public profile. ',
                   'আপনার জাতীয় পরিচয়পত্র নম্বর বা সেলফি নাগালে কারো কাছে দৃশ্যমান হয় না। শুধুমাত্র যাচাইকরণের স্তর প্রোফাইলে প্রদর্শিত হয়। সমস্ত ফাইল এনক্রিপ্ট করে কঠোর নিরাপত্তা নিয়মে সংরক্ষণ করা হয়।',
                 )}
               </p>

@@ -106,10 +106,10 @@ export function ProviderProfile() {
   );
   const [newSkill, setNewSkill] = useState('');
 
-  if (!provider) {
+  if (!provider || provider.accountStatus === 'suspended') {
     return (
       <div className="py-16 text-center">
-        <p className="text-moss-600">Provider not found.</p>
+        <p className="text-moss-600">Profile unavailable</p>
         <Link to="/" className="text-deep-600 underline mt-2 inline-block">
           Return home
         </Link>
@@ -117,7 +117,7 @@ export function ProviderProfile() {
     );
   }
 
-  const totalReviews = 47;
+  const totalReviews = provider.reviews ?? 0;
   const totalDist = REVIEW_DIST.reduce((s, r) => s + r.count, 0);
 
   function handleAddSkill() {
@@ -134,7 +134,7 @@ export function ProviderProfile() {
 
   return (
     <div className="w-full py-8 md:py-10">
-      <LayoutContainer variant="app">
+      <LayoutContainer variant={isPublic ? 'page' : 'app'}>
         {/* Back link */}
         <Link
           to={isPublic ? '/' : '/provider'}
@@ -160,13 +160,10 @@ export function ProviderProfile() {
                     <h1 className="text-h3 font-bold text-moss-900 tracking-tight">
                       {provider.name}
                     </h1>
-                    <VerifiedBadge level={2} />
+                    <VerifiedBadge level={(provider.level ?? 1) as 1 | 2 | 3} />
                   </div>
                   <p className="text-small text-moss-500 mb-1">
-                    {c(
-                      'Mirpur area (approximate only)',
-                      'মিরপুর এলাকা (আনুমানিক)',
-                    )}
+                    {provider.area}
                   </p>
                   <Rating
                     rating={provider.rating}
@@ -314,7 +311,7 @@ export function ProviderProfile() {
 
             {activeTab === 'portfolio' && (
               <Card variant="flat">
-                <h2 className="text-small font-bold text-moss-700 uppercase tracking-wider mb-4">
+                <h2 className="text-small font-bold text-moss-700 normal-case tracking-wider mb-4">
                   {c('Portfolio', 'পোর্টফোলিও')}
                 </h2>
                 <div className="flex flex-wrap gap-4">
@@ -338,7 +335,7 @@ export function ProviderProfile() {
 
             {activeTab === 'certificates' && (
               <Card variant="flat">
-                <h2 className="text-small font-bold text-moss-700 uppercase tracking-wider mb-4">
+                <h2 className="text-small font-bold text-moss-700 normal-case tracking-wider mb-4">
                   {c('Certificates', 'সার্টিফিকেট')}
                 </h2>
                 <div className="divide-y divide-moss-100">
@@ -359,7 +356,7 @@ export function ProviderProfile() {
             {activeTab === 'reviews' && (
               <Card variant="flat">
                 {/* Rating distribution */}
-                <h2 className="text-small font-bold text-moss-700 uppercase tracking-wider mb-4">
+                <h2 className="text-small font-bold text-moss-700 normal-case tracking-wider mb-4">
                   {c('Ratings', 'রেটিং')}
                 </h2>
                 <div className="space-y-2 mb-6">
@@ -416,7 +413,7 @@ export function ProviderProfile() {
           <div className="w-full lg:w-72 shrink-0 space-y-4">
             {/* At a glance */}
             <Card variant="flat">
-              <h2 className="text-small font-bold text-moss-700 uppercase tracking-wider mb-3">
+              <h2 className="text-small font-bold text-moss-700 normal-case tracking-wider mb-3">
                 {c('At a glance', 'এক নজরে')}
               </h2>
               <dl className="text-small divide-y divide-moss-100">

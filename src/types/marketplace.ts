@@ -18,8 +18,13 @@ interface Provider {
   price: number;
   verified: boolean;
   bio: string;
+  reviews?: number;
+  level?: number;
+  accountStatus?: 'active' | 'suspended';
+  verification?: { l1: string; l2: string; l3: string };
 }
 export interface Gig {
+  clientId?: string;
   id: string;
   title: string;
   category: string;
@@ -40,6 +45,8 @@ interface Proposal {
   message: string;
 }
 export interface Order {
+  clientId?: string;
+  deliveryFile?: string;
   id: string;
   title: string;
   providerId: string;
@@ -53,6 +60,8 @@ export interface Order {
   events: { text: string; at: string }[];
 }
 interface Message {
+  senderId?: string;
+  orderId?: string;
   id: string;
   sender: 'you' | 'provider';
   body: string;

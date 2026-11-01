@@ -261,7 +261,8 @@ export function AiIntake() {
                   />
                   <Button
                     size="md"
-                    variant="primary"
+                    variant="secondary"
+                    aria-label={c('Send message', 'মেসেজ পাঠান')}
                     type="submit"
                     disabled={!inputMessage.trim()}
                   >
@@ -361,7 +362,7 @@ export function AiIntake() {
           {/* Right Column: Live Brief So Far Panel & Confirm Step */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center justify-between pb-2 border-b border-moss-100">
-              <span className="text-caption uppercase tracking-wider text-deep-600 font-bold">
+              <span className="text-caption normal-case tracking-wider text-deep-600 font-bold">
                 {c('Brief so far', 'বর্তমান কাজের বিবরণ')}
               </span>
               <span className="text-caption text-moss-500">Live preview</span>

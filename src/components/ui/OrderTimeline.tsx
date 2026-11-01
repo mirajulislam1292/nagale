@@ -51,7 +51,7 @@ export function OrderTimeline({
           return (
             <li
               key={step.id}
-              className="flex-1 flex flex-col items-center text-center relative"
+              className="flex-1 min-w-0 flex flex-col items-center text-center relative"
             >
               {/* Connector line behind */}
               {index > 0 && (
@@ -70,7 +70,7 @@ export function OrderTimeline({
                     ? 'bg-deep-600 text-white'
                     : isCurrent
                       ? 'bg-mint-500 text-moss-900 ring-4 ring-mint-100'
-                      : 'bg-white border-2 border-moss-200 text-moss-400'
+                      : 'bg-white border-2 border-moss-200 text-moss-500'
                 }`}
               >
                 {isDone ? (
@@ -82,12 +82,12 @@ export function OrderTimeline({
 
               {/* Label */}
               <span
-                className={`mt-2 text-caption font-medium max-w-[80px] sm:max-w-none truncate ${
+                className={`sr-only sm:not-sr-only sm:mt-2 text-caption font-medium max-w-full ${
                   isCurrent
                     ? 'text-moss-900 font-bold'
                     : isDone
                       ? 'text-moss-700'
-                      : 'text-moss-400'
+                      : 'text-moss-500'
                 }`}
               >
                 {isBn ? step.bnLabel : step.label}
@@ -96,6 +96,11 @@ export function OrderTimeline({
           );
         })}
       </ol>
+      <p className="mt-3 text-center text-small font-medium sm:hidden">
+        {isBn
+          ? ORDER_STEPS[currentIndex]?.bnLabel
+          : ORDER_STEPS[currentIndex]?.label}
+      </p>
     </nav>
   );
 }

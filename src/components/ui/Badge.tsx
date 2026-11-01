@@ -1,3 +1,5 @@
+import { useApp } from '../../app/context';
+import { statusLabel } from '../../lib/format';
 import { type ReactNode } from 'react';
 import {
   ShieldCheck,
@@ -53,8 +55,10 @@ export function VerifiedBadge({
   level?: 1 | 2 | 3;
   label?: string;
 }) {
+  const { bn } = useApp();
   const text =
     label ||
+    (bn ? `যাচাইকৃত স্তর ${level.toLocaleString('bn-BD')}` : '') ||
     (level === 3
       ? 'Verified Level 3'
       : level === 2
@@ -110,11 +114,12 @@ export function RiskBadge({ level }: { level: 'low' | 'medium' | 'high' }) {
 
 export function OrderStatusBadge({
   status,
-  label,
 }: {
   status: string;
   label: string;
 }) {
+  const { bn } = useApp();
+  const resolvedLabel = statusLabel(status, bn);
   const tone =
     status === 'completed'
       ? 'success'
@@ -135,7 +140,7 @@ export function OrderStatusBadge({
 
   return (
     <Badge tone={tone} icon={icon}>
-      {label}
+      {resolvedLabel}
     </Badge>
   );
 }

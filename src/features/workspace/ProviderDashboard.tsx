@@ -1,3 +1,9 @@
+import {
+  matchedGigs as selectMatchedGigs,
+  matchingReason,
+  participantOrders,
+} from '../../mocks/selectors';
+import { formatDate } from '../../lib/format';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -26,7 +32,11 @@ import { feeFor } from '../../api/marketplace';
 export function ProviderDashboard() {
   const c = useCopy();
   const nav = useNavigate();
-  const { gigs, orders, feeRate } = useMarket();
+  const snapshot = useMarket();
+  const { feeRate, providers } = snapshot;
+  const orders = participantOrders(snapshot, 'provider');
+  const gigs = selectMatchedGigs(snapshot);
+  const viewer = providers.find((p) => p.id === 'nusrat');
 
   const [filterType, setFilterType] = useState<'All' | 'Digital' | 'Local'>(
     'All',
@@ -132,7 +142,7 @@ export function ProviderDashboard() {
           />
           <StatTile
             label={c('Net earnings', 'মোট অর্জিত আয়')}
-            value={`৳${totalEarnedNet.toLocaleString('en-IN')}`}
+            value={`৳${totalEarnedNet.toLocaleString(document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD')}`}
             sublabel={c(
               'Available for bKash/Nagad payout',
               'বিকাশ/নগদে উত্তোলনের জন্য প্রস্তুত',
@@ -168,7 +178,7 @@ export function ProviderDashboard() {
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                       <div>
-                        <span className="text-caption font-mono text-moss-400 mr-2">
+                        <span className="text-caption tabular-nums text-moss-500 mr-2">
                           {o.id}
                         </span>
                         <strong className="text-small font-bold text-moss-900">
@@ -177,7 +187,13 @@ export function ProviderDashboard() {
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-small font-bold text-deep-700 font-variant-numeric tabular-nums">
-                          ৳{fee.net.toLocaleString('en-IN')} net
+                          ৳
+                          {fee.net.toLocaleString(
+                            document.documentElement.lang === 'bn'
+                              ? 'bn-BD'
+                              : 'en-BD',
+                          )}{' '}
+                          net
                         </span>
                         <OrderStatusBadge
                           status={o.status}
@@ -210,7 +226,10 @@ export function ProviderDashboard() {
               <div className="space-y-3 text-small">
                 <div className="flex items-center justify-between">
                   <span className="text-moss-600">Client Rating:</span>
-                  <Rating rating={4.9} reviewsCount={38} />
+                  <Rating
+                    rating={viewer?.rating ?? 0}
+                    reviewsCount={viewer?.reviews ?? 0}
+                  />
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-moss-600">Completion rate:</span>
@@ -234,7 +253,10 @@ export function ProviderDashboard() {
                 <Wallet size={16} className="text-mint-300" />
               </div>
               <div className="text-h3 font-bold text-white font-variant-numeric tabular-nums mb-4">
-                ৳{totalEarnedNet.toLocaleString('en-IN')}
+                ৳
+                {totalEarnedNet.toLocaleString(
+                  document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                )}
               </div>
               <Button
                 size="sm"
@@ -264,7 +286,7 @@ export function ProviderDashboard() {
             </div>
 
             {/* Filters */}
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <div className="flex bg-moss-100 p-1 rounded-sm border border-moss-200">
                 {(['All', 'Digital', 'Local'] as const).map((t) => (
                   <button
@@ -285,14 +307,14 @@ export function ProviderDashboard() {
               <div className="relative">
                 <Search
                   size={16}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-moss-400 pointer-events-none"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-moss-500 pointer-events-none"
                 />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search feed…"
-                  className="pl-9 pr-3 py-1.5 min-h-[36px] bg-white border border-moss-200 rounded-sm text-small text-moss-900 focus:outline-none focus:border-deep-600"
+                  className="w-full max-w-full pl-9 pr-3 py-1.5 min-h-[36px] bg-white border border-moss-200 rounded-sm text-small text-moss-900 focus:outline-none focus:border-deep-600"
                 />
               </div>
             </div>
@@ -301,12 +323,7 @@ export function ProviderDashboard() {
           {/* Feed List */}
           <div className="space-y-4">
             {matchedGigs.map((gig) => {
-              const whyLine =
-                gig.category === 'CV writing'
-                  ? 'Matches your CV writing specialty and verified Level 2 status.'
-                  : gig.type === 'local'
-                    ? `Matches your local presence in ${gig.area}.`
-                    : 'Matches your verified secondary digital skills.';
+              const whyLine = matchingReason(snapshot, gig);
 
               return (
                 <Card
@@ -337,10 +354,15 @@ export function ProviderDashboard() {
 
                     <div className="text-left sm:text-right shrink-0">
                       <div className="text-h3 font-bold text-moss-900 font-variant-numeric tabular-nums">
-                        ৳{gig.budget.toLocaleString('en-IN')}
+                        ৳
+                        {gig.budget.toLocaleString(
+                          document.documentElement.lang === 'bn'
+                            ? 'bn-BD'
+                            : 'en-BD',
+                        )}
                       </div>
                       <div className="text-caption text-moss-500">
-                        Deadline: {gig.deadline}
+                        Due {formatDate(gig.deadline)}
                       </div>
                     </div>
                   </div>
@@ -360,7 +382,7 @@ export function ProviderDashboard() {
                     <Link to={`/provider/feed/${gig.id}`}>
                       <Button
                         size="sm"
-                        variant="primary"
+                        variant="secondary"
                         icon={<ArrowRight size={14} />}
                       >
                         View & propose

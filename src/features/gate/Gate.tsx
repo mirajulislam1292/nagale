@@ -93,7 +93,7 @@ export function Component() {
           <GateLinks />
         </nav>
         <button aria-pressed={lite} onClick={() => setLite(!lite)}>
-          {text.lite}: {lite ? '✓' : '−'}
+          {text.lite}: {lite ? (bn ? 'চালু' : 'On') : bn ? 'বন্ধ' : 'Off'}
         </button>
         <span>© Nagale</span>
       </footer>

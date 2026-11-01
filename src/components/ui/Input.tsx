@@ -1,3 +1,5 @@
+import { ChevronDown } from 'lucide-react';
+import { useApp } from '../../app/context';
 import {
   forwardRef,
   useRef,
@@ -145,7 +147,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               : children}
           </select>
           <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-moss-500 text-small">
-            ▼
+            <ChevronDown size={16} aria-hidden="true" />
           </span>
         </div>
         {hint && !error && (
@@ -277,7 +279,7 @@ export function OtpInput({
   };
 
   return (
-    <div className="flex gap-2 sm:gap-3 justify-between max-w-sm">
+    <div className="flex gap-1 sm:gap-2 justify-between max-w-sm">
       {Array.from({ length }, (_, i) => (
         <input
           key={i}
@@ -291,7 +293,7 @@ export function OtpInput({
           onChange={(e) => handleChange(i, e.target.value)}
           onKeyDown={(e) => handleKeyDown(i, e)}
           onPaste={handlePaste}
-          className="w-12 h-13 text-center text-h3 font-bold text-moss-900 bg-white border border-moss-200 rounded-sm focus:outline-none focus:border-deep-600 focus:ring-1 focus:ring-deep-600 font-variant-numeric tabular-nums transition-colors"
+          className="w-12 min-w-0 h-14 shrink-0 text-center text-[28px] font-bold text-moss-900 bg-white border border-moss-200 rounded-sm focus:outline-none focus:border-deep-600 focus:ring-1 focus:ring-deep-600 font-variant-numeric tabular-nums transition-colors"
         />
       ))}
     </div>
@@ -318,6 +320,7 @@ export function MoneyInput({
   min = 100,
   max = 1000000,
 }: MoneyInputProps) {
+  const { bn } = useApp();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const raw = parseBanglaDigits(e.target.value).replace(/\D/g, '');
     const num = raw ? parseInt(raw, 10) : 0;
@@ -341,7 +344,7 @@ export function MoneyInput({
           inputMode="numeric"
           min={min}
           max={max}
-          value={value ? value.toLocaleString('en-IN') : ''}
+          value={value ? value.toLocaleString(bn ? 'bn-BD' : 'en-BD') : ''}
           onChange={handleChange}
           placeholder="1,500"
           className="w-full h-full px-3.5 text-body text-moss-900 bg-transparent placeholder:text-moss-400 focus:outline-none font-variant-numeric tabular-nums font-medium"

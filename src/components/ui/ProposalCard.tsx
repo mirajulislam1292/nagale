@@ -69,7 +69,10 @@ export function ProposalCard({
         {/* Price and timeline */}
         <div className="text-left sm:text-right shrink-0">
           <div className="text-h3 font-bold text-moss-900 font-variant-numeric tabular-nums">
-            ৳{proposal.price.toLocaleString('en-IN')}
+            ৳
+            {proposal.price.toLocaleString(
+              document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+            )}
           </div>
           <div className="text-caption text-moss-500 flex items-center sm:justify-end gap-1 mt-0.5">
             <Clock size={12} />
@@ -178,7 +181,10 @@ export function ProposalCompareTable({
                   key={p.id}
                   className="py-2.5 px-3 font-bold text-moss-900 font-variant-numeric tabular-nums"
                 >
-                  ৳{p.price.toLocaleString('en-IN')}
+                  ৳
+                  {p.price.toLocaleString(
+                    document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                  )}
                   {p.price === minPrice && (
                     <span className="ml-2 text-caption bg-deep-100 text-deep-700 px-1.5 py-0.5 rounded-sm">
                       Lowest

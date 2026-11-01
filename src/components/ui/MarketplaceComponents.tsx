@@ -24,19 +24,28 @@ export function FeeBreakdown({
       <div className="flex justify-between py-2 text-moss-700">
         <dt>Order value (Client pays)</dt>
         <dd className="font-medium font-variant-numeric tabular-nums text-moss-900">
-          ৳{gross.toLocaleString('en-IN')}
+          ৳
+          {gross.toLocaleString(
+            document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+          )}
         </dd>
       </div>
       <div className="flex justify-between py-2 text-moss-500">
         <dt>Nagale fee ({rate * 100}%)</dt>
         <dd className="font-variant-numeric tabular-nums">
-          ৳{fee.toLocaleString('en-IN')}
+          ৳
+          {fee.toLocaleString(
+            document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+          )}
         </dd>
       </div>
       <div className="flex justify-between py-2 text-moss-900 font-bold">
         <dt>Provider receives</dt>
         <dd className="font-variant-numeric tabular-nums">
-          ৳{net.toLocaleString('en-IN')}
+          ৳
+          {net.toLocaleString(
+            document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+          )}
         </dd>
       </div>
     </dl>
@@ -71,14 +80,20 @@ export function EscrowSummary({
         {isBn ? 'সুরক্ষিত মোট পরিমাণ' : 'Total held in escrow'}
       </div>
       <div className="text-[40px] font-bold leading-tight tracking-tight text-white font-variant-numeric tabular-nums mb-6">
-        ৳{amount.toLocaleString('en-IN')}
+        ৳
+        {amount.toLocaleString(
+          document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+        )}
       </div>
 
       <div className="border-t border-moss-700/80 pt-4 mb-6">
         <div className="flex justify-between text-small text-moss-300 mb-2">
           <span>{isBn ? 'অর্ডারের মূল্য' : 'Agreed order value'}</span>
           <span className="text-white font-medium font-variant-numeric tabular-nums">
-            ৳{amount.toLocaleString('en-IN')}
+            ৳
+            {amount.toLocaleString(
+              document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+            )}
           </span>
         </div>
         <div className="flex justify-between text-small text-moss-300 mb-2">
@@ -86,7 +101,10 @@ export function EscrowSummary({
             {isBn ? 'নাগালে সার্ভিস ফি (১০%)' : 'Platform service fee (10%)'}
           </span>
           <span className="text-white font-variant-numeric tabular-nums">
-            ৳{fee.toLocaleString('en-IN')}
+            ৳
+            {fee.toLocaleString(
+              document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+            )}
           </span>
         </div>
         <div className="flex justify-between text-small text-mint-300 font-medium pt-2 border-t border-moss-700/50">
@@ -96,7 +114,10 @@ export function EscrowSummary({
               : 'Provider payout on approval'}
           </span>
           <span className="font-bold font-variant-numeric tabular-nums">
-            ৳{net.toLocaleString('en-IN')}
+            ৳
+            {net.toLocaleString(
+              document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+            )}
           </span>
         </div>
       </div>
@@ -153,18 +174,9 @@ export function DeliveryPreview({
         {/* Repeating Watermark Overlay if not yet approved */}
         {!isApproved && (
           <div
-            className="absolute inset-0 pointer-events-none flex flex-wrap items-center justify-center opacity-15 overflow-hidden -rotate-12"
+            className="absolute inset-0 pointer-events-none delivery-watermark"
             aria-hidden="true"
-          >
-            {Array.from({ length: 18 }).map((_, i) => (
-              <span
-                key={i}
-                className="text-lead sm:text-h2 font-black text-moss-900 tracking-widest uppercase m-6"
-              >
-                Nagale Preview
-              </span>
-            ))}
-          </div>
+          />
         )}
 
         {/* Content mock */}
@@ -248,7 +260,7 @@ export function MaskingNotice({
 // MaskedChip
 export function MaskedChip({ label = 'contact hidden' }: { label?: string }) {
   return (
-    <span className="inline-flex items-center px-2 py-0.5 rounded-sm text-caption bg-moss-200/80 text-moss-700 font-mono select-none">
+    <span className="inline-flex items-center px-2 py-0.5 rounded-sm text-caption bg-moss-200/80 text-moss-700 tabular-nums select-none">
       [{label}]
     </span>
   );

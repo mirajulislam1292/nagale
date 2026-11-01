@@ -73,7 +73,7 @@ export function TrustPage() {
         'চুক্তি চূড়ান্ত ও অর্থ জমা না হওয়া পর্যন্ত ব্যক্তিগত ফোন নম্বর বা ইমেইল গোপন থাকে। এর ফলে সমস্ত কাজের স্বচ্ছ প্রমাণ সংরক্ষিত থাকে।',
       ),
       fragment: (
-        <div className="p-3 bg-moss-100 rounded-sm text-caption font-mono text-moss-700 my-3">
+        <div className="p-3 bg-moss-100 rounded-sm text-caption tabular-nums text-moss-700 my-3">
           "Please check my proposal. [contact hidden] until escrow funded."
         </div>
       ),
@@ -98,7 +98,7 @@ export function TrustPage() {
 
   return (
     <ReadingContainer>
-      <span className="text-caption uppercase tracking-wider text-deep-600 font-bold block mb-2">
+      <span className="text-caption normal-case tracking-wider text-deep-600 font-bold block mb-2">
         {c('Safeguards', 'সুরক্ষা')}
       </span>
       <h1 className="text-h2 sm:text-[40px] font-bold text-moss-900 tracking-tight leading-tight mb-4">
@@ -146,7 +146,7 @@ export function FeesPage() {
 
   return (
     <ReadingContainer>
-      <span className="text-caption uppercase tracking-wider text-deep-600 font-bold block mb-2">
+      <span className="text-caption normal-case tracking-wider text-deep-600 font-bold block mb-2">
         {c('Pricing', 'মূল্য ও ফি')}
       </span>
       <h1 className="text-h2 sm:text-[40px] font-bold text-moss-900 tracking-tight leading-tight mb-4">
@@ -197,7 +197,10 @@ export function FeesPage() {
               )}
             </span>
             <span className="font-bold text-moss-900 font-variant-numeric tabular-nums">
-              ৳{val.toLocaleString('en-IN')}
+              ৳
+              {val.toLocaleString(
+                document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+              )}
             </span>
           </div>
           <div className="flex justify-between text-moss-600">
@@ -205,13 +208,19 @@ export function FeesPage() {
               {c('Nagale platform fee (10%)', 'নাগালে সার্ভিস ফি (১০%)')}
             </span>
             <span className="font-variant-numeric tabular-nums">
-              ৳{fee.toLocaleString('en-IN')}
+              ৳
+              {fee.toLocaleString(
+                document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+              )}
             </span>
           </div>
           <div className="flex justify-between text-deep-700 font-bold pt-2 border-t border-moss-200 text-body">
             <span>{c('Provider net payout', 'সেবাদাতার নিট আয়')}</span>
             <span className="font-variant-numeric tabular-nums">
-              ৳{net.toLocaleString('en-IN')}
+              ৳
+              {net.toLocaleString(
+                document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+              )}
             </span>
           </div>
         </div>
@@ -264,7 +273,7 @@ export function SupportPage() {
 
   return (
     <ReadingContainer>
-      <span className="text-caption uppercase tracking-wider text-deep-600 font-bold block mb-2">
+      <span className="text-caption normal-case tracking-wider text-deep-600 font-bold block mb-2">
         {c('Helpdesk', 'সহায়তা')}
       </span>
       <h1 className="text-h2 sm:text-[40px] font-bold text-moss-900 tracking-tight leading-tight mb-4">
@@ -357,7 +366,7 @@ export function TermsPage() {
 
   return (
     <ReadingContainer>
-      <span className="text-caption uppercase tracking-wider text-deep-600 font-bold block mb-2">
+      <span className="text-caption normal-case tracking-wider text-deep-600 font-bold block mb-2">
         {c('Agreement', 'চুক্তি')}
       </span>
       <h1 className="text-h2 sm:text-[40px] font-bold text-moss-900 tracking-tight leading-tight mb-4">
@@ -426,7 +435,7 @@ export function PrivacyPage() {
 
   return (
     <ReadingContainer>
-      <span className="text-caption uppercase tracking-wider text-deep-600 font-bold block mb-2">
+      <span className="text-caption normal-case tracking-wider text-deep-600 font-bold block mb-2">
         {c('Privacy contract', 'গোপনীয়তা নীতি')}
       </span>
       <h1 className="text-h2 sm:text-[40px] font-bold text-moss-900 tracking-tight leading-tight mb-4">
@@ -509,21 +518,16 @@ export function NotFoundPage() {
       <ArcsPattern variant="error" />
 
       <LayoutContainer className="relative z-10 max-w-lg">
-        <span className="text-caption font-mono uppercase tracking-widest text-deep-600 font-bold block mb-3">
+        <span className="text-caption tabular-nums normal-case tracking-widest text-deep-600 font-bold block mb-3">
           404
         </span>
         <h1 className="text-h2 sm:text-h1 font-bold text-moss-900 mb-4 tracking-tight">
-          {c('This page could not be found.', 'পৃষ্ঠাটি খুঁজে পাওয়া যায়নি।')}
+          {c('We can’t find that page.', 'পৃষ্ঠাটি খুঁজে পাওয়া যায়নি।')}
         </h1>
-        <p className="text-body text-moss-600 mb-8 leading-relaxed">
-          {c(
-            'The link you followed may be incomplete or expired. Your workspace and active orders remain intact.',
-            'লিংকটি অসম্পূর্ণ বা পরিবর্তিত হতে পারে। আপনার ড্যাশবোর্ড ও সক্রিয় অর্ডারগুলো নিরাপদ আছে।',
-          )}
-        </p>
+
         <Link to="/">
           <Button size="lg" variant="primary" icon={<ArrowRight size={18} />}>
-            {c('Return to Nagale home', 'মূল পাতায় ফিরে যান')}
+            {c('Go to Nagale', 'মূল পাতায় ফিরে যান')}
           </Button>
         </Link>
       </LayoutContainer>

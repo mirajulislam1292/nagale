@@ -1,0 +1,365 @@
+[
+  {
+    "route": "/",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Continue"],
+    "h1": "Work safely. Get it done.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-gate.png"
+  },
+  {
+    "route": "/about",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Get started"],
+    "h1": "Describe. Agree. Get it done.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-about.png"
+  },
+  {
+    "route": "/auth",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Send verification code"],
+    "h1": "A serious marketplace for work in Bangladesh.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-auth.png"
+  },
+  {
+    "route": "/client",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Start brief"],
+    "h1": "Good to see you, Mahim.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-client.png"
+  },
+  {
+    "route": "/client/new",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Confirm & post brief"],
+    "h1": "Start with what you need.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-client-new.png"
+  },
+  {
+    "route": "/client/gigs/g1",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Accept proposal"],
+    "h1": "Write a graduate CV for an internship application",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-client-gigs-g1.png"
+  },
+  {
+    "route": "/client/orders/N-1042",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Approve & release payment"],
+    "h1": "Graduate CV and cover letter",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-client-orders-N-1042.png"
+  },
+  {
+    "route": "/client/orders/N-1038",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": [],
+    "h1": "Product catalogue layout",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-client-orders-N-1038.png"
+  },
+  {
+    "route": "/provider",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": [],
+    "h1": "Welcome back, Nusrat.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-provider.png"
+  },
+  {
+    "route": "/client/wallet",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Fund escrow balance"],
+    "h1": "Client wallet & escrow",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-client-wallet.png"
+  },
+  {
+    "route": "/provider/wallet",
+    "locale": "en",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Request payout"],
+    "h1": "Provider earnings & wallet",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-1280-provider-wallet.png"
+  },
+  {
+    "route": "/",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": ["Continue"],
+    "h1": "Work safely. Get it done.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-gate.png"
+  },
+  {
+    "route": "/about",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": ["Get started"],
+    "h1": "Describe. Agree. Get it done.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-about.png"
+  },
+  {
+    "route": "/auth",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "A serious marketplace for work in Bangladesh.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-auth.png"
+  },
+  {
+    "route": "/client",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "Good to see you, Mahim.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-client.png"
+  },
+  {
+    "route": "/client/new",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "Start with what you need.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-client-new.png"
+  },
+  {
+    "route": "/client/gigs/g1",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "Write a graduate CV for an internship application",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-client-gigs-g1.png"
+  },
+  {
+    "route": "/client/orders/N-1042",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "Graduate CV and cover letter",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-client-orders-N-1042.png"
+  },
+  {
+    "route": "/client/orders/N-1038",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "Product catalogue layout",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-client-orders-N-1038.png"
+  },
+  {
+    "route": "/provider",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "Welcome back, Nusrat.",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-provider.png"
+  },
+  {
+    "route": "/client/wallet",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": ["Fund escrow balance"],
+    "h1": "Client wallet & escrow",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-client-wallet.png"
+  },
+  {
+    "route": "/provider/wallet",
+    "locale": "en",
+    "width": 390,
+    "overflow": false,
+    "mint": ["Request payout"],
+    "h1": "Provider earnings & wallet",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/en-390-provider-wallet.png"
+  },
+  {
+    "route": "/",
+    "locale": "bn",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["এগিয়ে যান"],
+    "h1": "কাজ হোক নিশ্চিন্তে।",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/bn-1280-gate.png"
+  },
+  {
+    "route": "/client",
+    "locale": "bn",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["বিবরণ শুরু করুন"],
+    "h1": "স্বাগতম, মাহিম রহমান।",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/bn-1280-client.png"
+  },
+  {
+    "route": "/client/orders/N-1042",
+    "locale": "bn",
+    "width": 1280,
+    "overflow": false,
+    "mint": ["Approve & release payment"],
+    "h1": "Graduate CV and cover letter",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/bn-1280-client-orders-N-1042.png"
+  },
+  {
+    "route": "/",
+    "locale": "bn",
+    "width": 390,
+    "overflow": false,
+    "mint": ["এগিয়ে যান"],
+    "h1": "কাজ হোক নিশ্চিন্তে।",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/bn-390-gate.png"
+  },
+  {
+    "route": "/client",
+    "locale": "bn",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "স্বাগতম, মাহিম রহমান।",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/bn-390-client.png"
+  },
+  {
+    "route": "/client/orders/N-1042",
+    "locale": "bn",
+    "width": 390,
+    "overflow": false,
+    "mint": [],
+    "h1": "Graduate CV and cover letter",
+    "violations": [],
+    "errors": [],
+    "file": "docs/audit/after/bn-390-client-orders-N-1042.png"
+  },
+  {
+    "route": "/",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/about",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/auth",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/client",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/client/new",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/client/gigs/g1",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/client/orders/N-1042",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/client/orders/N-1038",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/provider",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/client/wallet",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "/provider/wallet",
+    "width": 360,
+    "overflow": false
+  }
+]

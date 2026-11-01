@@ -109,7 +109,7 @@ export function DisputePage() {
           {/* Progress Header */}
           <div className="mb-6 flex items-center justify-between border-b border-moss-200 pb-4">
             <div>
-              <span className="text-caption font-bold text-moss-400 uppercase tracking-wider block">
+              <span className="text-caption font-bold text-moss-400 normal-case tracking-wider block">
                 {order.title} · #{order.id}
               </span>
               <h1 className="text-h3 font-bold text-moss-900 tracking-tight">

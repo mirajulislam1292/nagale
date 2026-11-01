@@ -1,3 +1,4 @@
+import { VERIF_DATA, type VerifTab, type VerifItem } from '../../mocks/seed';
 import { useState } from 'react';
 import { UserCheck, ShieldCheck, Lock, CheckCircle2 } from 'lucide-react';
 import { LayoutContainer } from '../../components/layout/LayoutContainer';
@@ -7,82 +8,6 @@ import { Avatar } from '../../components/ui/Avatar';
 import { Badge } from '../../components/ui/Badge';
 import { Checkbox, Textarea } from '../../components/ui/Input';
 import { useApp, useCopy } from '../../app/context';
-
-type VerifTab = 'level1' | 'level2' | 'level3';
-
-interface VerifItem {
-  id: string;
-  name: string;
-  initials: string;
-  date: string;
-  docType: string;
-  level: number;
-}
-
-const VERIF_DATA: Record<VerifTab, VerifItem[]> = {
-  level1: [
-    {
-      id: 'v-101',
-      name: 'Tanvir Hossain',
-      initials: 'TH',
-      date: 'Today, 2:15 PM',
-      docType: 'Selfie + Phone SMS',
-      level: 1,
-    },
-    {
-      id: 'v-102',
-      name: 'Nusrat Jahan',
-      initials: 'NJ',
-      date: 'Yesterday',
-      docType: 'Selfie + Phone SMS',
-      level: 1,
-    },
-  ],
-  level2: [
-    {
-      id: 'v-201',
-      name: 'Farhana Akter',
-      initials: 'FA',
-      date: 'Today, 10:45 AM',
-      docType: 'Smart National ID (NID)',
-      level: 2,
-    },
-    {
-      id: 'v-202',
-      name: 'Kamal Ahmed',
-      initials: 'KA',
-      date: 'Oct 29, 2026',
-      docType: 'Smart National ID (NID)',
-      level: 2,
-    },
-    {
-      id: 'v-203',
-      name: 'Sadia Rahman',
-      initials: 'SR',
-      date: 'Oct 28, 2026',
-      docType: 'Smart National ID (NID)',
-      level: 2,
-    },
-  ],
-  level3: [
-    {
-      id: 'v-301',
-      name: 'Zubair Hossain',
-      initials: 'ZH',
-      date: 'Today, 11:20 AM',
-      docType: 'UI/UX Training Certificate + Portfolio',
-      level: 3,
-    },
-    {
-      id: 'v-302',
-      name: 'Anika Tabassum',
-      initials: 'AT',
-      date: 'Oct 30, 2026',
-      docType: 'Python Web Development Diploma',
-      level: 3,
-    },
-  ],
-};
 
 export function AdminVerification() {
   const { notify } = useApp();
@@ -188,7 +113,7 @@ export function AdminVerification() {
           {/* Left: Queue list (5 cols) */}
           <div className="lg:col-span-5 bg-white rounded-md border border-moss-200 shadow-e1 overflow-hidden">
             <div className="p-3 bg-mist border-b border-moss-200 text-caption font-bold text-moss-700">
-              {c('SUBMISSIONS AWAITING AUDIT', 'অপেক্ষারত আবেদনসমূহ')}
+              {c('Submissions awaiting audit', 'অপেক্ষারত আবেদনসমূহ')}
             </div>
             <div className="divide-y divide-moss-100">
               {items.map((it) => {
@@ -272,7 +197,7 @@ export function AdminVerification() {
 
                 {/* Checklist */}
                 <div className="p-4 bg-mist rounded-sm border border-moss-200 space-y-3">
-                  <span className="text-caption font-bold text-moss-700 uppercase tracking-wider block">
+                  <span className="text-caption font-bold text-moss-700 normal-case tracking-wider block">
                     {c('Compliance Audit Checklist', 'সম্মতি যাচাইকরণ তালিকা')}
                   </span>
                   <div className="space-y-2.5">

@@ -1,3 +1,4 @@
+import { formatDate, humanBriefId } from '../../lib/format';
 import { useState } from 'react';
 import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import {
@@ -147,12 +148,14 @@ export function GigProposals() {
         <Card variant="raised" className="p-6 mb-8 border-moss-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-3 border-b border-moss-100">
             <div className="flex items-center gap-2">
-              <span className="text-caption font-bold text-moss-500 uppercase">
+              <span className="text-caption font-bold text-moss-500 normal-case">
                 {gig.category}
               </span>
               {gig.type === 'local' ? <LocalBadge /> : <DigitalBadge />}
             </div>
-            <div className="text-caption text-moss-500">Brief ID: {gig.id}</div>
+            <div className="text-caption text-moss-500">
+              {humanBriefId(gig.id)}
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
@@ -169,7 +172,10 @@ export function GigProposals() {
                 Client budget
               </span>
               <span className="text-h2 font-bold text-moss-900 font-variant-numeric tabular-nums">
-                ৳{gig.budget.toLocaleString('en-IN')}
+                ৳
+                {gig.budget.toLocaleString(
+                  document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                )}
               </span>
             </div>
           </div>
@@ -177,7 +183,7 @@ export function GigProposals() {
           <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-moss-100 mt-4 text-small text-moss-600">
             <span className="flex items-center gap-1.5">
               <Calendar size={15} />
-              <span>Target: {gig.deadline}</span>
+              <span>Due {formatDate(gig.deadline)}</span>
             </span>
             <span className="flex items-center gap-1.5">
               <MapPin size={15} />
@@ -217,7 +223,9 @@ export function GigProposals() {
                 />
                 <p className="text-caption text-deep-700 font-medium mt-1">
                   You receive ৳
-                  {feeFor(providerPrice, feeRate).net.toLocaleString('en-IN')}{' '}
+                  {feeFor(providerPrice, feeRate).net.toLocaleString(
+                    document.documentElement.lang === 'bn' ? 'bn-BD' : 'en-BD',
+                  )}{' '}
                   after 10% platform fee.
                 </p>
               </div>
@@ -237,7 +245,7 @@ export function GigProposals() {
 
               <Button
                 size="lg"
-                variant="primary"
+                variant="secondary"
                 onClick={handleSubmitProviderProposal}
                 disabled={submitting || !providerMessage.trim()}
                 icon={<Send size={16} />}
@@ -276,6 +284,7 @@ export function GigProposals() {
                 <div className="flex items-center gap-1.5 text-small text-moss-600">
                   <SlidersHorizontal size={16} />
                   <select
+                    aria-label={c('Sort proposals', 'প্রস্তাব সাজান')}
                     value={sort}
                     onChange={(e) => setSort(e.target.value as typeof sort)}
                     className="bg-white border border-moss-200 rounded-sm px-2.5 py-1 text-small text-moss-900 focus:outline-none focus:border-deep-600"
@@ -301,7 +310,7 @@ export function GigProposals() {
                 <div className="flex items-center gap-2">
                   <Button
                     size="sm"
-                    variant="primary"
+                    variant="secondary"
                     onClick={() => setCompareModalOpen(true)}
                   >
                     Compare side-by-side
@@ -370,7 +379,12 @@ export function GigProposals() {
                     You are accepting <strong>{acceptingProposal.name}</strong>
                     's proposal for{' '}
                     <strong>
-                      ৳{acceptingProposal.price.toLocaleString('en-IN')}
+                      ৳
+                      {acceptingProposal.price.toLocaleString(
+                        document.documentElement.lang === 'bn'
+                          ? 'bn-BD'
+                          : 'en-BD',
+                      )}
                     </strong>
                     .
                   </p>
@@ -392,7 +406,7 @@ export function GigProposals() {
                       Cancel
                     </Button>
                     <Button
-                      variant="primary"
+                      variant="secondary"
                       onClick={handleConfirmAccept}
                       icon={<Check size={16} />}
                     >

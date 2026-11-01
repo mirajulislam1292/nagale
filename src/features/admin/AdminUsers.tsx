@@ -56,7 +56,7 @@ export function AdminUsers() {
       role: 'provider' as const,
       joinedDate: 'Nov 2025',
       ordersCount: p.completed,
-      status: idx === 3 ? ('suspended' as const) : ('active' as const),
+      status: p.accountStatus ?? ('active' as const),
       flagged: idx === 1,
     })),
   ]);
@@ -155,7 +155,7 @@ export function AdminUsers() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-moss-200 bg-mist text-caption font-bold text-moss-600 uppercase tracking-wider">
+                <tr className="border-b border-moss-200 bg-mist text-caption font-bold text-moss-600 normal-case tracking-wider">
                   <th className="py-3 px-4">{c('User', 'ব্যবহারকারী')}</th>
                   <th className="py-3 px-4">{c('Role', 'ভূমিকা')}</th>
                   <th className="py-3 px-4">{c('Joined', 'যোগদান')}</th>
@@ -176,7 +176,7 @@ export function AdminUsers() {
                           <strong className="font-bold text-moss-900 block truncate">
                             {u.name}
                           </strong>
-                          <span className="text-caption text-moss-400 font-mono">
+                          <span className="text-caption text-moss-400 tabular-nums">
                             {u.id}
                           </span>
                         </div>

@@ -9,3 +9,7 @@ Native review requested: “টাকা সুরক্ষিত থাকে�
 Premium Tier 1 additions for native review: “কাজের বিবরণ দিন, সঠিক মানুষ খুঁজুন”, “টাকা সুরক্ষিত রাখুন” for paying into escrow, “ধাপে ধাপে যাচাই”, and “আপনার দক্ষতায় পরের সুযোগ তৈরি করুন”. These phrases are implemented, but native product-language review is still recommended. Workspace translation remains partial as previously documented.
 
 Final master Gate/About review: “কাজ হোক নিশ্চিন্তে”, “পেমেন্ট ছাড়া হয়েছে”, “টাকা সুরক্ষিত রাখুন”, “সেবাদাতা” versus “সেবা প্রদানকারী”. New content is in src/content/gate.ts and src/content/about.ts; the rest of the marketplace still requires the complete i18n-key migration.
+
+## v3 foundation strings
+
+Native review requested for status labels গৃহীত / অর্থ জমা / চলমান / জমা হয়েছে / পর্যালোচনায় / সম্পন্ন / বিরোধে, proposal plural “২টি প্রস্তাব”, Lite চালু/বন্ধ, and “পরিচয় অনুমোদিত”. Gate role headlines will be added in Tier 1.

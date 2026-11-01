@@ -36,7 +36,7 @@ export function AdminOverview() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Don't intercept when typing in textarea or input
-      if (['TEXTAREA', 'INPUT'].includes((e.target as HTMLElement).tagName)) {
+      if (['Textarea', 'INPUT'].includes((e.target as HTMLElement).tagName)) {
         return;
       }
 
@@ -147,7 +147,7 @@ export function AdminOverview() {
           {/* Left Panel: Case List (7 cols) */}
           <div className="lg:col-span-7 bg-white rounded-md border border-moss-200 shadow-e1 overflow-hidden">
             <div className="p-3.5 bg-mist border-b border-moss-200 flex justify-between items-center text-caption font-bold text-moss-700">
-              <span>{c('CASES IN QUEUE', 'সারির কেসসমূহ')}</span>
+              <span>{c('Cases in queue', 'সারির কেসসমূহ')}</span>
               <span className="font-variant-numeric tabular-nums">
                 {cases.length} {c('total', 'মোট')}
               </span>
@@ -177,7 +177,7 @@ export function AdminOverview() {
                         <strong className="text-small font-bold text-moss-900 truncate">
                           {cs.subject}
                         </strong>
-                        <span className="text-caption text-moss-400 font-mono">
+                        <span className="text-caption text-moss-400 tabular-nums">
                           {cs.id}
                         </span>
                       </div>
@@ -207,7 +207,7 @@ export function AdminOverview() {
               <Card variant="flat" className="space-y-5">
                 <div className="flex justify-between items-start border-b border-moss-100 pb-3">
                   <div>
-                    <span className="text-caption font-mono text-moss-500 uppercase tracking-wider block">
+                    <span className="text-caption tabular-nums text-moss-500 normal-case tracking-wider block">
                       {selectedCase.id}
                     </span>
                     <h2 className="text-h4 font-bold text-moss-900">
@@ -289,7 +289,7 @@ export function AdminOverview() {
 
                   {/* Actions Row */}
                   <div className="space-y-2">
-                    <span className="text-caption font-bold text-moss-600 uppercase tracking-wider block">
+                    <span className="text-caption font-bold text-moss-600 normal-case tracking-wider block">
                       {c('Execute Decision', 'সিদ্ধান্ত বাস্তবায়ন')}
                     </span>
                     <div className="flex flex-wrap gap-2">

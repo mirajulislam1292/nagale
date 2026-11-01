@@ -1,3 +1,4 @@
+import { formatBDT } from '../lib/format';
 import {
   createContext,
   useContext,
@@ -63,9 +64,5 @@ export function useMarket() {
 }
 export function useMoney() {
   const { bn } = useApp();
-  return (n: number) =>
-    '৳' +
-    new Intl.NumberFormat(bn ? 'bn-BD' : 'en-IN', {
-      maximumFractionDigits: 0,
-    }).format(n);
+  return (n: number) => formatBDT(n, bn);
 }
