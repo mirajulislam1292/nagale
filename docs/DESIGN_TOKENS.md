@@ -71,3 +71,7 @@ Fonts:
 - Minimum tap target: **44px**
 - Public section spacing: **128px** desktop, **72px** mobile
 - Layout container width: `1200px` (public/landing), `1120px` (app workspaces)
+
+## Final master override, 1 November 2026
+
+Gate display is 64/68 EN and 56/76 BN; mobile 40/44 EN and 36/52 BN, Latin tracking -0.03em and BN zero. This supersedes earlier display specimens. Gate controls have 44px minimum targets; Continue is 52px. Gate and About use the canonical Mint/Moss palette, two elevation levels and the existing supplied logo.

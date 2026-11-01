@@ -20,3 +20,9 @@ Lint, strict types, knip, 50 tests, 13 contrast checks and build pass. Gate/Abou
 The final-master Tier 2/3 migration is not complete: /home role feeds, social showcase, saved/search/notifications/settings, exact new route map and guards, completed i18n-key migration, all route/state matrices and the full typed state machines remain. Existing marketplace pages retain earlier limitations documented in BUILD_BRIEF_STATUS. Gate session redirect and Portal-to-/home handoff depend on that migration. The current partner form is local-only; no real payment, KYC or notification backend is connected.
 
 Production Lighthouse targets have not been verified for this final-master build. Old Lighthouse scores are not scores for the new Gate. No claim of the full final master being complete, investor-ready or production-ready is made. Keep these changes on premium-redesign/preview until the remaining gate is resolved.
+
+## Authenticated preview measurement
+
+Vercel preview: https://nagale-6e7ympfsx-mirajulislam1292s-projects.vercel.app. Opened and verified in the owner browser; Lite toggle verified. An unauthenticated audit redirected to Vercel login and is invalid for the app. The authenticated application audit measured Performance 88, Accessibility 99, Best Practices 100. SEO is unavailable because the auditor robots fetch encountered a protected redirect. LCP 2.1s, TBT 380ms, CLS 0.024. Some Lighthouse 12/Chrome trace diagnostics also failed; no unsupported 90+ performance or production-SEO claim is made.
+
+Domain check: nagale.app returns HTTP 200 and still serves its existing Coming soon page. This branch has not been merged to main or assigned to that domain.
