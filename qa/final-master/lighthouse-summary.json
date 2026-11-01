@@ -1,0 +1,14 @@
+{
+  "url": "https://nagale-6e7ympfsx-mirajulislam1292s-projects.vercel.app/",
+  "environment": "authenticated preview",
+  "scores": {
+    "performance": 88,
+    "accessibility": 99,
+    "best-practices": 100,
+    "seo": null
+  },
+  "lcp": "2.1\u00a0s",
+  "tbt": "380\u00a0ms",
+  "cls": "0.024",
+  "seo_note": "Auditor robots fetch returned a protected redirect; SEO score is unavailable, not zero."
+}
