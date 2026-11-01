@@ -1,6 +1,6 @@
 # Fix and elevate v3
 
-## Tier 0 — foundation (checks passed; release pending)
+## Tier 0 — foundation (published)
 
 - Transparent SVG Logo uses the original supplied glyph paths with a real bilingual wordmark. Removed the two unused lockup assets.
 - Shared buttons now use radius 6, 8px icon gap; OTP is 48×56; selects use Lucide; checkboxes/range/rating use brand colours; aligned public profile and About containers.
@@ -31,3 +31,10 @@ Run shared checks once per tier. Capture only affected key routes, not another 3
 - Focused browser check: 39 cases, no horizontal overflow at 360/390, at most one visible Mint action, no serious/critical axe findings in the checked EN/BN routes, no page errors.
 - Source counts: `font-mono` 18→0, `uppercase` 33→0, `Brief ID` 1→0; the two messaging demo-trigger occurrences remain for Tier 3.
 - Screenshot index: `docs/audit/after/SCREENSHOTS.md`.
+
+## Published Tier 0
+
+- Code commit `5abeabd`, merged and pushed to GitHub main.
+- Vercel production `nagale-83esz8fzn-mirajulislam1292s-projects.vercel.app` / `dpl_CZNuSMPBFu2hGFrnxVpYWAztJeVA`: Ready.
+- Both `https://nagale.app/client` and `https://nagale.vercel.app/client` returned HTTP 200 with the new inline vector Logo and four canonical open briefs. Domains verified in project `nagale`; DNS/mail records unchanged.
+- Stop at the requested tier boundary to limit credit use. Resume at Tier 1. Full v3 is not complete.

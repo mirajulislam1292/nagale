@@ -40,3 +40,5 @@ Unused translation/test libraries were removed. This prototype uses a small loca
 - Start polish from the current Gate build and merge current main/premium branch history before editing, preserving deployed fixes.
 - A local photography brief does not match Nusrat solely because of its area; the local match exception is the requested Dhanmondi tutoring brief.
 - Keep Tier 0 focused on shared presentation and data consistency; preserve API enforcement and reserve page restructuring for the named later tiers.
+
+- Preserved the unrelated old local main as `main-local-before-polish`; created main from origin/main and fast-forwarded tested polish history, without overwriting remote history.
