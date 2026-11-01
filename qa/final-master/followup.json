@@ -6,6 +6,8 @@
     "height": 800,
     "pageWidth": 360,
     "pageHeight": 800,
+    "gateHeight": 800,
+    "gateScroll": 800,
     "issues": []
   },
   {
@@ -14,7 +16,7 @@
     "width": 360,
     "height": 800,
     "pageWidth": 360,
-    "pageHeight": 5123,
+    "pageHeight": 5167,
     "issues": []
   },
   {
@@ -24,6 +26,8 @@
     "height": 800,
     "pageWidth": 360,
     "pageHeight": 800,
+    "gateHeight": 800,
+    "gateScroll": 800,
     "issues": []
   },
   {
@@ -32,7 +36,7 @@
     "width": 360,
     "height": 800,
     "pageWidth": 360,
-    "pageHeight": 5074,
+    "pageHeight": 5114,
     "issues": []
   }
 ]

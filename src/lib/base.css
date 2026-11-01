@@ -1142,3 +1142,40 @@ html[lang='bn'] .gate-intro h1 {
     padding: 4px 8px;
   }
 }
+@media (max-width: 767px) {
+  .gate-header {
+    height: 44px;
+    min-height: 44px;
+  }
+  .gate-main {
+    gap: 8px;
+    padding-block: 0;
+  }
+  .gate-intro h1 {
+    margin-bottom: 8px;
+  }
+  .gate-login {
+    padding: 12px;
+  }
+  .gate-login h2 {
+    margin-bottom: 8px;
+  }
+  .gate-phone {
+    margin-bottom: 8px;
+  }
+  .gate-primary {
+    min-height: 52px;
+  }
+  .gate-divider {
+    margin-block: 8px;
+  }
+  .demo-input {
+    min-height: 44px;
+  }
+  .demo-brief-meta > span {
+    line-height: 16px;
+  }
+  .demo-prices button {
+    line-height: 16px;
+  }
+}
