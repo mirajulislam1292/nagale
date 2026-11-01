@@ -1,0 +1,38 @@
+[
+  {
+    "route": "/",
+    "bn": false,
+    "width": 360,
+    "height": 800,
+    "pageWidth": 360,
+    "pageHeight": 800,
+    "issues": []
+  },
+  {
+    "route": "/about",
+    "bn": false,
+    "width": 360,
+    "height": 800,
+    "pageWidth": 360,
+    "pageHeight": 5123,
+    "issues": []
+  },
+  {
+    "route": "/",
+    "bn": true,
+    "width": 360,
+    "height": 800,
+    "pageWidth": 360,
+    "pageHeight": 800,
+    "issues": []
+  },
+  {
+    "route": "/about",
+    "bn": true,
+    "width": 360,
+    "height": 800,
+    "pageWidth": 360,
+    "pageHeight": 5074,
+    "issues": []
+  }
+]

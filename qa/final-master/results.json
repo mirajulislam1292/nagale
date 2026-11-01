@@ -1,0 +1,119 @@
+{
+  "errors": [],
+  "results": [
+    {
+      "route": "/",
+      "bn": false,
+      "width": 360,
+      "height": 900,
+      "pageWidth": 360,
+      "pageHeight": 900,
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "bn": false,
+      "width": 360,
+      "height": 900,
+      "pageWidth": 544,
+      "pageHeight": 5035,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": false,
+      "width": 768,
+      "height": 900,
+      "pageWidth": 768,
+      "pageHeight": 900,
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "bn": false,
+      "width": 768,
+      "height": 900,
+      "pageWidth": 768,
+      "pageHeight": 4838,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": false,
+      "width": 1280,
+      "height": 900,
+      "pageWidth": 1280,
+      "pageHeight": 900,
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "bn": false,
+      "width": 1280,
+      "height": 900,
+      "pageWidth": 1280,
+      "pageHeight": 4536,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": true,
+      "width": 360,
+      "height": 900,
+      "pageWidth": 360,
+      "pageHeight": 900,
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "bn": true,
+      "width": 360,
+      "height": 900,
+      "pageWidth": 533,
+      "pageHeight": 4986,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": true,
+      "width": 768,
+      "height": 900,
+      "pageWidth": 768,
+      "pageHeight": 900,
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "bn": true,
+      "width": 768,
+      "height": 900,
+      "pageWidth": 768,
+      "pageHeight": 4847,
+      "issues": []
+    },
+    {
+      "route": "/",
+      "bn": true,
+      "width": 1280,
+      "height": 900,
+      "pageWidth": 1280,
+      "pageHeight": 900,
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "bn": true,
+      "width": 1280,
+      "height": 900,
+      "pageWidth": 1280,
+      "pageHeight": 4541,
+      "issues": []
+    },
+    {
+      "escrowExample": true
+    },
+    {
+      "unknownNotGuessed": true
+    }
+  ]
+}

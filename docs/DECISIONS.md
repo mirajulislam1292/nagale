@@ -23,3 +23,12 @@ The owner subsequently requested fixing the deployment and deploying. This super
 The owner explicitly authorised ignoring small prompt inconsistencies and prioritised completing the working design. Implementation now prioritises a complete visible flow over blocking on exact scaffold order: an English landing page, role selection without sign-in, distinct dashboards, a brief builder, proposals, provider profiles, order transitions, masked messaging, wallet views, verification-state previews and moderation. Unsupported backend actions are labelled as demo rather than pretending to submit documents or move money. No claim of full master-spec completion or v0.1.0 is made.
 
 Unused translation/test libraries were removed. This prototype uses a small locale context and paired copy, with JSON namespace migration explicitly documented as outstanding. Font source packages are retained for the reproducible brand-assets script and their licenses are shipped with the font files.
+
+## Final master prompt, 1 November 2026
+
+- Root is now the one-screen Gate; the editable story lives at /about. This supersedes earlier marketing-root decisions.
+- Gate and About share BriefDemo and the existing pure bilingual parser; no live AI is claimed.
+- Login phone is carried in sessionStorage to the existing Portal, never in a URL; it is not a credential/token.
+- Shared app Layout is lazy-loaded to keep marketing navigation out of the Gate bundle.
+- Unknown requests do not fabricate price or category. Sample proposal prices derive from the parsed budget.
+- The latest legacy marketplace screens remain available during the route/feed migration; the new /home and social route map is not yet complete.

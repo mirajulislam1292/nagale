@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /home
+Disallow: /client/
+Disallow: /provider/
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /settings
+Disallow: /notifications
+Sitemap: https://nagale.app/sitemap.xml
