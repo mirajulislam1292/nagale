@@ -1,13 +1,35 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Logo } from '../../components/ui/Logo';
-import { ArcsPattern } from '../../components/ui/ArcsPattern';
+import { ArrowRight } from 'lucide-react';
 import { useApp } from '../../app/context';
-import { gateContent } from '../../content/gate';
-import { BriefDemo, GateLinks } from './BriefDemo';
+import { gateContent, gateRoles } from '../../content/gate';
+import { GateLinks } from './BriefDemo';
 export function Component() {
   const { bn, setBn, lite, setLite } = useApp();
   const text = gateContent[bn ? 'bn' : 'en'];
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [motion, setMotion] = useState(false);
+  const roleCopy = gateRoles[bn ? 'bn' : 'en'][roleIndex === 0 ? 0 : 1];
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => setMotion(!lite && !media.matches && !document.hidden);
+    sync();
+    media.addEventListener('change', sync);
+    document.addEventListener('visibilitychange', sync);
+    return () => {
+      media.removeEventListener('change', sync);
+      document.removeEventListener('visibilitychange', sync);
+    };
+  }, [lite]);
+  useEffect(() => {
+    if (!motion) return;
+    const timer = window.setInterval(
+      () => setRoleIndex((index) => 1 - index),
+      6000,
+    );
+    return () => window.clearInterval(timer);
+  }, [motion]);
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
   const nav = useNavigate();
@@ -15,8 +37,17 @@ export function Component() {
     document.title = bn ? 'নাগালে — লগইন' : 'Nagale — Log in';
   }, [bn]);
   return (
-    <div className="gate-screen">
-      <ArcsPattern variant="hero" />
+    <div className="gate-screen gate-editorial" data-motion={motion}>
+      <div className="gate-orbit-field" aria-hidden="true">
+        {[0, 1, 2, 3].map((i) => (
+          <span
+            className="gate-orbit"
+            key={i}
+            style={{ animationDelay: `${i * -1.5}s` }}
+          />
+        ))}
+        <span className="gate-orbit-dot" />
+      </div>
       <header className="gate-header">
         <Link to="/" className="gate-brand">
           <Logo size="mark" accessibleName="Nagale" />
@@ -29,13 +60,20 @@ export function Component() {
           >
             {bn ? 'EN' : 'বাংলা'}
           </button>
-          <Link to="/about">{text.about}</Link>
+          <Link to="/about" className="gate-about-link">
+            {text.about}
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </header>
       <main className="gate-main" id="main-content">
         <section className="gate-intro">
-          <h1>{text.headline}</h1>
-          <BriefDemo />
+          <div className="gate-copy-stage">
+            <div key={`${bn}-${roleIndex}`} className="gate-flip-copy">
+              <h1>{roleCopy.headline}</h1>
+              <p className="gate-subtext">{roleCopy.subtext}</p>
+            </div>
+          </div>
         </section>
         <section className="gate-login">
           <h2>{text.login}</h2>
@@ -71,7 +109,7 @@ export function Component() {
                   setPhone(e.target.value);
                   setError('');
                 }}
-                placeholder="1XXXXXXXXX"
+                placeholder="1712 345678"
                 aria-invalid={!!error}
               />
             </div>
@@ -83,7 +121,7 @@ export function Component() {
             <button className="gate-primary">{text.continue}</button>
           </form>
           <div className="gate-divider" />
-          <Link className="gate-secondary" to="/auth?mode=signup">
+          <Link className="gate-create-link" to="/auth?mode=signup">
             {text.create}
           </Link>
         </section>

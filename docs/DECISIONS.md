@@ -42,3 +42,5 @@ Unused translation/test libraries were removed. This prototype uses a small loca
 - Keep Tier 0 focused on shared presentation and data consistency; preserve API enforcement and reserve page restructuring for the named later tiers.
 
 - Preserved the unrelated old local main as `main-local-before-polish`; created main from origin/main and fast-forwarded tested polish history, without overwriting remote history.
+
+- Owner’s latest Gate direction supersedes the v3 live-demo panel: remove the board/chips entirely; rotate only headline and subtext for clients/providers, with decorative brand rings.

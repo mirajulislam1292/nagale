@@ -13,3 +13,5 @@ Final master Gate/About review: “কাজ হোক নিশ্চিন্�
 ## v3 foundation strings
 
 Native review requested for status labels গৃহীত / অর্থ জমা / চলমান / জমা হয়েছে / পর্যালোচনায় / সম্পন্ন / বিরোধে, proposal plural “২টি প্রস্তাব”, Lite চালু/বন্ধ, and “পরিচয় অনুমোদিত”. Gate role headlines will be added in Tier 1.
+
+Gate update: “কাজ হবে। টাকা থাকবে নিরাপদ।” / “দক্ষতা কাজে লাগান। আয় করুন।” and their matching subtexts need native review.

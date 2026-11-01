@@ -38,3 +38,12 @@ Run shared checks once per tier. Capture only affected key routes, not another 3
 - Vercel production `nagale-83esz8fzn-mirajulislam1292s-projects.vercel.app` / `dpl_CZNuSMPBFu2hGFrnxVpYWAztJeVA`: Ready.
 - Both `https://nagale.app/client` and `https://nagale.vercel.app/client` returned HTTP 200 with the new inline vector Logo and four canonical open briefs. Domains verified in project `nagale`; DNS/mail records unchanged.
 - Stop at the requested tier boundary to limit credit use. Resume at Tier 1. Full v3 is not complete.
+
+## Gate direction update
+
+- Removed the service chips and entire BriefDemo panel from `/` only. About retains its existing independent demo until its own redesign.
+- Two English/Bangla headline/subtext pairs rotate every six seconds with a flip transition; hidden tabs, reduced motion and Lite pause rotation.
+- Added restrained animated brand rings; retained login, language switch and About navigation.
+- This focused update is not completion of the remaining v3 tiers.
+
+Gate validation: lint, strict type-check, build, 56 tests and 13 contrast checks passed. Six EN/BN viewport cases (1280/390/360) have no page scroll, horizontal overflow, demo board or serious/critical axe issues. Copy rotation, Lite pause, reduced-motion pause and phone-to-auth navigation verified. Evidence: `qa/gate-editorial/results.json`.

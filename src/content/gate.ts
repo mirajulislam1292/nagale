@@ -66,3 +66,30 @@ const bn: Record<keyof typeof en, string> = {
 };
 export const gateContent = { en, bn };
 export type GateKey = keyof typeof en;
+
+export const gateRoles = {
+  en: [
+    {
+      headline: 'Get it done. Pay safely.',
+      subtext:
+        'Find the right person. Agree on the work. Release payment when you approve.',
+    },
+    {
+      headline: 'Use your skill. Get paid.',
+      subtext:
+        'Find work that fits you. Agree on the price. Get paid for what you deliver.',
+    },
+  ],
+  bn: [
+    {
+      headline: 'কাজ হবে। টাকা থাকবে নিরাপদ।',
+      subtext:
+        'উপযুক্ত মানুষ খুঁজুন। কাজের শর্ত ঠিক করুন। অনুমোদনের পর টাকা ছাড়ুন।',
+    },
+    {
+      headline: 'দক্ষতা কাজে লাগান। আয় করুন।',
+      subtext:
+        'আপনার উপযুক্ত কাজ খুঁজুন। পারিশ্রমিক ঠিক করুন। কাজ বুঝিয়ে দিয়ে টাকা পান।',
+    },
+  ],
+} as const;
